@@ -3,7 +3,7 @@
 
 #include <immintrin.h>
 
-namespace cortex_core {
+namespace cortex {
     /**
      * Performs element-wise exponential operation
      * @note From Stack Overflow: https://stackoverflow.com/a/49090523

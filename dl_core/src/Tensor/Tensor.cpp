@@ -13,7 +13,7 @@
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Graphs/autograd_graph.h"
 
-namespace cortex_core {
+namespace cortex {
     Tensor::Tensor(const std::vector<uint32_t> &shape, const dtype dtype, const std::shared_ptr<DeviceAllocator> &alloc,
                    const bool requires_grad) :
     m_shape(shape),

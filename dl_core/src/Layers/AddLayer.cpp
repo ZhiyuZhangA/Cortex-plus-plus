@@ -2,7 +2,7 @@
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     AddLayer::AddLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Add Layer";
     }

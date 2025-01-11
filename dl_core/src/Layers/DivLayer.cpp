@@ -1,7 +1,7 @@
 #include "Layers/DivLayer.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     DivLayer::DivLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Div Layer";
     }

@@ -2,7 +2,7 @@
 #include "Tensor/math_utils.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     LogLayer::LogLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Log Layer";
     }

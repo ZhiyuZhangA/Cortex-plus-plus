@@ -1,6 +1,6 @@
 #include "Random/RandomEngine.h"
 
-namespace cortex_core {
+namespace cortex {
 
     RandomEngine::RandomEngine() {
         std::random_device rd;

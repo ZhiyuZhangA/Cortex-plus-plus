@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <cstring>
 
-namespace cortex_core {
+namespace cortex {
     /**
      * Copies elements from a vector into a given array 'ptr' one by one
      * using row-major order

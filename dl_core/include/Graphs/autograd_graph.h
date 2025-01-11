@@ -4,7 +4,7 @@
 #include <vector>
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
 
     class Autograd_graph {
     public:

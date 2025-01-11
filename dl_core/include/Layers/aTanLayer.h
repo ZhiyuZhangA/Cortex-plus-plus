@@ -2,7 +2,7 @@
 #define ATAN_LAYER_H
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
 
     class ATanLayer final : public BaseLayer {
     public:

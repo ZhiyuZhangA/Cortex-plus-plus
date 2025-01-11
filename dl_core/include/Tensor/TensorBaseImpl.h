@@ -6,7 +6,7 @@
 #include "Buffer/Buffer.h"
 #include "Dtypes/Dtype.h"
 
-namespace cortex_core {
+namespace cortex {
     /**
      * 可能的职责:
      * 1. Responsible for the base implementation of tensor, thus, it becomes

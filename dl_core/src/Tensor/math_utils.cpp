@@ -8,7 +8,7 @@
 #include "Layers/TanLayer.h"
 #include "Layers/Kernels/DeviceKernel.h"
 
-namespace cortex_core {
+namespace cortex {
     Tensor pow(const Tensor& base, const Tensor& n) {
         Tensor ret(base.shape(), base.get_dtype(), base.get_device(), base.enable_grad() || n.enable_grad());
         get_pow_kernel(base.get_device())(base, n, ret);

@@ -3,7 +3,7 @@
 
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     /**
     * Performs element-wise addition operation between two input tensor and came out with a result tensor
     * @param a the input tensor a

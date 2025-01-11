@@ -5,7 +5,7 @@
 #include "Dtypes/Dtype.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     class RandomEngine {
     public:
         /**

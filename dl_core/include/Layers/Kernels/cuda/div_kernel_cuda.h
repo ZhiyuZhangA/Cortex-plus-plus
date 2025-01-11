@@ -7,7 +7,7 @@
 
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     void div_kernel_cuda(const Tensor& a, const Tensor& b, const Tensor& result);
 }
 

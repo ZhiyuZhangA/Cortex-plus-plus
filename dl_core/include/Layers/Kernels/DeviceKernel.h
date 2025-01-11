@@ -7,7 +7,7 @@
  * and operation with scalar specifically, while for two operands without same shape, the broadcast logics will be addressed
  * in the upper layer (tensor function).
  */
-namespace cortex_core {
+namespace cortex {
     typedef void (*add_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*sub_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*mul_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);

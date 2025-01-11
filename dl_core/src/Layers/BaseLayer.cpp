@@ -1,6 +1,6 @@
 #include "Layers/BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     BaseLayer::BaseLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) {
         this->m_dtype = dtype;
         this->m_deviceType = deviceType;

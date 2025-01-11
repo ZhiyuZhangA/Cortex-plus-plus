@@ -12,7 +12,7 @@
 #include "Buffer/Buffer.h"
 #include "Tensor_utils.h"
 
-namespace cortex_core {
+namespace cortex {
 
     class Autograd_graph;
     class BaseLayer;

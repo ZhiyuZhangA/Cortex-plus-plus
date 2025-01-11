@@ -1,7 +1,7 @@
 #include "Layers/SumToLayer.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
     SumToLayer::SumToLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "SumTo Layer";
     }

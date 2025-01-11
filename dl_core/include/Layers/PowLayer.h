@@ -2,7 +2,7 @@
 #define POW_LAYER_H
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     class PowLayer final : public BaseLayer {
     public:
         /**

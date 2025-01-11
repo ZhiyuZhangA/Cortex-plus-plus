@@ -3,7 +3,7 @@
 #include "Layers/BaseLayer.h"
 #include "Random/RandomEngine.h"
 
-using namespace cortex_core;
+using namespace cortex;
 
 int main() {
 

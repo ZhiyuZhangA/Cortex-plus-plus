@@ -2,7 +2,7 @@
 #define COS_LAYER_H
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     class CosLayer final : public BaseLayer {
     public:
         /**

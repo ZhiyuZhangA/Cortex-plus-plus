@@ -4,7 +4,7 @@
 
 #include "Tensor/Buffer/Buffer.h"
 
-namespace cortex_core {
+namespace cortex {
     Buffer::Buffer(const size_t byteSize, const std::shared_ptr<DeviceAllocator>& alloc): NonCopyable(), m_byteSize(byteSize), m_alloc(alloc) {
         m_deviceType = alloc->device_type();
         m_ptr = nullptr;

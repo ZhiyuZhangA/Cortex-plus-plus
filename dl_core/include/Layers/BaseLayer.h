@@ -7,7 +7,7 @@
 #include "Dtypes/Dtype.h"
 #include "Tensor/Tensor.h"
 
-namespace cortex_core {
+namespace cortex {
 
     class BaseLayer : std::enable_shared_from_this<BaseLayer> {
     public:

@@ -2,7 +2,7 @@
 #define TAN_LAYER_H
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     class TanLayer final : public BaseLayer {
     public:
         /**

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <map>
 
-namespace cortex_core {
+namespace cortex {
 
     using ui8_t = unsigned char;
     using ui16_t = unsigned short;

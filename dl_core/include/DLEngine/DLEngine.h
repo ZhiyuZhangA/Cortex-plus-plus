@@ -1,7 +1,7 @@
 #ifndef DLENGINE_H
 #define DLENGINE_H
 
-namespace cortex_core {
+namespace cortex {
     class DLEngine {
     public:
         static void enable_grad();

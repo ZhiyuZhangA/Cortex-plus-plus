@@ -1,7 +1,7 @@
 #include "Layers/Kernels/x86/math_kernel_cpu.h"
 #include <cblas.h>
 
-namespace cortex_core {
+namespace cortex {
 
     void transpose_mkl(const float* input, float* output, const std::vector<uint32_t>& shape, const uint32_t dim0, const uint32_t dim1, const bool in_place) {
         // Determine whether the dim0 and dim1 are coming from the row and column

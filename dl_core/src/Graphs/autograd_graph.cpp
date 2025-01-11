@@ -4,7 +4,7 @@
 
 #include "Layers/BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     Autograd_graph::Autograd_graph(const Tensor& output): m_output(output) { }
 
     void Autograd_graph::add_grad(const std::shared_ptr<Tensor>& grad) {

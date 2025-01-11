@@ -3,7 +3,7 @@
 
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     class SubLayer final : public BaseLayer {
     public:
         /**

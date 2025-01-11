@@ -2,7 +2,7 @@
 #define EXP_LAYER_H
 #include "BaseLayer.h"
 
-namespace cortex_core {
+namespace cortex {
     class ExpLayer final : public BaseLayer {
     public:
         /**

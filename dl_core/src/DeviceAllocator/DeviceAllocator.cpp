@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cstdlib>
 
-namespace cortex_core {
+namespace cortex {
     std::shared_ptr<CpuAllocator> DeviceAllocatorFactory::create_cpu_allocator() {
         if (m_cpuAllocator == nullptr) {
             m_cpuAllocator = std::make_shared<CpuAllocator>(DeviceType::cpu);

@@ -3,7 +3,7 @@
 
 
 #include "Tensor/Tensor.h"
-namespace cortex_core {
+namespace cortex {
     void transpose_kernel_cuda(const Tensor& a, const Tensor& result, uint32_t dim0, uint32_t dim1, bool in_place);
 }
 
