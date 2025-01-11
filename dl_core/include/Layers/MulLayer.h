@@ -2,7 +2,7 @@
 #define MUL_LAYER_H
 #include "BaseLayer.h"
 
-namespace dl_core {
+namespace cortex_core {
     class MulLayer final : public BaseLayer {
     public:
         /**

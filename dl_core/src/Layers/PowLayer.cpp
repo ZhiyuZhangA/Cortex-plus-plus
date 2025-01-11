@@ -3,7 +3,7 @@
 #include "Tensor/math_utils.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     PowLayer::PowLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Pow Layer";
     }

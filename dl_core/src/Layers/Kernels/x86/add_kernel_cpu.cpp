@@ -1,7 +1,7 @@
 #include "Layers/Kernels/x86/math_kernel_cpu.h"
 #include "immintrin.h"
 
-namespace dl_core {
+namespace cortex_core {
 
 #define BLOCK_SIZE 8
 

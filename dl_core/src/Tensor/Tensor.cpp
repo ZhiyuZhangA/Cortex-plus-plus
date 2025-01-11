@@ -1,8 +1,7 @@
-#include "Tensor/Tensor.h"
-
 #include <iostream>
 #include <queue>
 
+#include "Tensor/Tensor.h"
 #include "DLEngine/DLEngine.h"
 #include "Layers/AddLayer.h"
 #include "Layers/BroadcastLayer.h"
@@ -12,8 +11,9 @@
 #include "Layers/SumToLayer.h"
 #include "Layers/TransposeLayer.h"
 #include "Layers/Kernels/DeviceKernel.h"
+#include "Graphs/autograd_graph.h"
 
-namespace dl_core {
+namespace cortex_core {
     Tensor::Tensor(const std::vector<uint32_t> &shape, const dtype dtype, const std::shared_ptr<DeviceAllocator> &alloc,
                    const bool requires_grad) :
     m_shape(shape),
@@ -118,7 +118,7 @@ namespace dl_core {
 
     Tensor Tensor::ones(const std::vector<uint32_t> &shape, const dtype dtype, const DeviceType device) {
         Tensor tensor(shape, dtype, device, false);
-        fill_with_ones(tensor.m_buffer->data(), tensor.m_size, dtype);
+        tensor.fill_(1.0);
         return tensor;
     }
 
@@ -250,8 +250,19 @@ namespace dl_core {
             ret.m_layer->add_input(*this);
             ret.m_layer->add_output(ret);
         }
-
         return ret;
+    }
+
+    void Tensor::zero_grad() const {
+        if (this->enable_grad())
+            this->m_grad->zeros();
+    }
+
+    void Tensor::requires_grad() {
+        if (m_grad == nullptr) {
+            m_grad = std::make_shared<Tensor>(m_shape, dtype::f32, m_buffer->device_alloc(), false);
+            m_requires_grad = true;
+        }
     }
 
     void Tensor::backward() {
@@ -260,9 +271,10 @@ namespace dl_core {
             return;
         }
 
-        if (this->grad()->at({0}) == 0) {
-            this->grad()->ones();
+        if (m_graph == nullptr) {
+            m_graph = std::make_shared<Autograd_graph>(*this);
         }
+        m_graph->backward(*this);
     }
 
     Tensor Tensor::operator+(const Tensor& tensor) const {
@@ -403,7 +415,6 @@ namespace dl_core {
     Tensor Tensor::operator/(const f32_t &scalar) const {
         Tensor op_s({1}, m_dtype, m_buffer->device_type(), false);
         op_s.fill_(scalar);
-        std::cout << op_s.to_string() << std::endl;
         return this->operator/(op_s);
     }
 

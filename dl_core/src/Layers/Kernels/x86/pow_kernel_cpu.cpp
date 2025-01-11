@@ -2,7 +2,7 @@
 #include "immintrin.h"
 #include <cmath>
 
-namespace dl_core {
+namespace cortex_core {
 
     #define BLOCK_SIZE 8
 

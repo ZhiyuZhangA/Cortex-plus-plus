@@ -6,7 +6,7 @@
 #include "Layers/Kernels/cuda/sub_kernel_cuda.h"
 #include "Layers/Kernels/cuda/tranpose_kernel_cuda.h"
 
-namespace dl_core {
+namespace cortex_core {
     add_kernel get_add_kernel(const DeviceType deviceType) {
         if (deviceType == DeviceType::cpu)
             return add_kernel_cpu;

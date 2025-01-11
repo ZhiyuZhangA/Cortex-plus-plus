@@ -2,7 +2,7 @@
 #define DEVICEALLOCATOR_H
 #include <memory>
 
-namespace dl_core {
+namespace cortex_core {
     enum class DeviceType {
         cpu,
         cuda,

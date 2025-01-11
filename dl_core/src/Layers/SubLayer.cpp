@@ -1,7 +1,7 @@
 #include "Layers/SubLayer.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     SubLayer::SubLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Sub Layer";
     }

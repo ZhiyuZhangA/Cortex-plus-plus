@@ -7,7 +7,7 @@
 #include "Dtypes/Dtype.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
 
     class BaseLayer : std::enable_shared_from_this<BaseLayer> {
     public:
@@ -18,6 +18,8 @@ namespace dl_core {
 
         void add_input(const Tensor& input);
         void add_output(const Tensor& output);
+
+        std::vector<Tensor> get_inputs() const;
 
     protected:
         std::string m_layerName;

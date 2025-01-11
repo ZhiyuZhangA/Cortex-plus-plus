@@ -2,7 +2,7 @@
 #define SIN_LAYER_H
 #include "BaseLayer.h"
 
-namespace dl_core {
+namespace cortex_core {
     class SinLayer final : public BaseLayer {
     public:
         /**

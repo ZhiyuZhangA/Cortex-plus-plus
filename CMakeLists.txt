@@ -44,6 +44,7 @@ set(HEADERS
         dl_core/include/Layers/aTanLayer.h
         dl_core/include/Layers/BroadcastLayer.h
         dl_core/include/Layers/SumToLayer.h
+        dl_core/include/Tensor/TensorBaseImpl.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -89,6 +90,8 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/BroadcastLayer.cpp
         dl_core/src/Layers/SumToLayer.cpp
         dl_core/src/Layers/Kernels/x86/sum_kernel_cpu.cpp
+        dl_core/src/Graphs/autograd_graph.cpp
+        dl_core/include/Graphs/autograd_graph.h
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)

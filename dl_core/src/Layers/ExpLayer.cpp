@@ -2,7 +2,7 @@
 #include "Tensor/Tensor.h"
 #include "Tensor/math_utils.h"
 
-namespace dl_core {
+namespace cortex_core {
     ExpLayer::ExpLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Exp Layer";
     }

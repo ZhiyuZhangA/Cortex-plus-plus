@@ -12,10 +12,10 @@
 #include "Buffer/Buffer.h"
 #include "Tensor_utils.h"
 
-namespace dl_core {
+namespace cortex_core {
 
+    class Autograd_graph;
     class BaseLayer;
-
     using BaseLayerPtr = std::shared_ptr<BaseLayer>;
 
     class Tensor : std::enable_shared_from_this<Tensor> {
@@ -245,6 +245,17 @@ namespace dl_core {
         Tensor sum() const;
 
         /**
+         * Set the gradient of current tensor to be zeros.
+         * This function would usually be called after each iteration in training.
+         */
+        void zero_grad() const;
+
+        /**
+         *
+         */
+        void requires_grad();
+
+        /**
          *
          */
         void backward();
@@ -390,6 +401,8 @@ namespace dl_core {
         bool m_requires_grad = false;
         BaseLayerPtr m_layer; // gradient function
         std::shared_ptr<Tensor> m_grad;
+
+        std::shared_ptr<Autograd_graph> m_graph = nullptr;
 
         uint16_t m_printPrecision = 4;
     };

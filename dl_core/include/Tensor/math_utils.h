@@ -2,7 +2,7 @@
 #define MATH_UTILS_H
 #include "Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
 
 #define e 2.71828181828459045
 

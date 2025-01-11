@@ -2,7 +2,7 @@
 #include "Tensor/math_utils.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     CosLayer::CosLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Cos Layer";
     }

@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <cstring>
 
-namespace dl_core {
+namespace cortex_core {
     /**
      * Copies elements from a vector into a given array 'ptr' one by one
      * using row-major order
@@ -54,7 +54,7 @@ namespace dl_core {
      * @param dtype the data type of the element in the tensor
      */
     inline void fill_with_ones(void* ptr, const uint32_t size, const dtype& dtype) {
-        fill_with_value(ptr, size, 1, get_dtype_size(dtype));
+        fill_with_value(ptr, size, 1.0, get_dtype_size(dtype));
     }
 
     /**

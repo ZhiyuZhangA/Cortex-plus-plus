@@ -2,7 +2,7 @@
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     MulLayer::MulLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Mul Layer";
     }

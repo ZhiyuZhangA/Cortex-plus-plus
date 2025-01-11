@@ -3,7 +3,7 @@
 
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     /**
     * Performs element-wise power operation with base tensor a and exp tensor b, and came out with a result tensor on cuda
     * @param a the input tensor a (base)

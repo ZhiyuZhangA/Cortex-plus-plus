@@ -1,7 +1,7 @@
 #ifndef NOCOPYABLE_H
 #define NOCOPYABLE_H
 
-namespace dl_core {
+namespace cortex_core {
     class NonCopyable {
     public:
         NonCopyable() = default;

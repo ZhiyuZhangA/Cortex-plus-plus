@@ -3,7 +3,7 @@
 #include "Layers/BaseLayer.h"
 #include "Random/RandomEngine.h"
 
-using namespace dl_core;
+using namespace cortex_core;
 
 int main() {
 
@@ -13,11 +13,13 @@ int main() {
     tensorB.initialize_with({1, 2, 30, 4, 10, 6, 7, 8, 9, 2, 11, 100});
     std::cout << tensorB.to_string() << std::endl;
 
-    std::cout << tensorA.broadcast_to({2, 3, 2}).to_string() << std::endl;
+    Tensor res = (tensorA + tensorB) * tensorB / 4;
 
-    const Tensor res = tensorA + tensorB;
+    res.backward();
 
-    std::cout << res.to_string() << std::endl;
+    std::cout << "A: " << tensorA.grad()->to_string() << std::endl;
+    std::cout << "B: " << tensorB.grad()->to_string() << std::endl;
+
 
     return 0;
 }

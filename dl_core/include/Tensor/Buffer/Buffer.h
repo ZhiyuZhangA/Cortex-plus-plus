@@ -5,7 +5,7 @@
 #include "Common/NoCopyable.h"
 #include "DeviceAllocator/DeviceAllocator.h"
 
-namespace dl_core {
+namespace cortex_core {
     class Buffer : NonCopyable, std::enable_shared_from_this<Buffer> {
     public:
         Buffer(size_t byteSize, const std::shared_ptr<DeviceAllocator>& alloc);

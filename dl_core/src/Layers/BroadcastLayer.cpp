@@ -1,7 +1,7 @@
 #include "Layers/BroadcastLayer.h"
 #include "Tensor/Tensor.h"
 
-namespace dl_core {
+namespace cortex_core {
     BroadcastLayer::BroadcastLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
         this->m_layerName = "Broadcast Layer";
     }

@@ -1,6 +1,6 @@
 #include "DLEngine/DLEngine.h"
 
-namespace dl_core {
+namespace cortex_core {
 
     bool DLEngine::m_grad_mode_enabled = true;
 

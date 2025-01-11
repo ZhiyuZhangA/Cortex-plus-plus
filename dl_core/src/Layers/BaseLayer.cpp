@@ -1,6 +1,6 @@
 #include "Layers/BaseLayer.h"
 
-namespace dl_core {
+namespace cortex_core {
     BaseLayer::BaseLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) {
         this->m_dtype = dtype;
         this->m_deviceType = deviceType;
@@ -13,5 +13,9 @@ namespace dl_core {
 
     void BaseLayer::add_output(const Tensor& output) {
         this->m_outputs.push_back(output);
+    }
+
+    std::vector<Tensor> BaseLayer::get_inputs() const {
+        return this->m_inputs;
     }
 }

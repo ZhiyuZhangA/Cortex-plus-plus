@@ -3,7 +3,7 @@
 
 #include "BaseLayer.h"
 
-namespace dl_core {
+namespace cortex_core {
     class SumToLayer final : public BaseLayer {
     public:
         /**
