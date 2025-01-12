@@ -1,11 +1,11 @@
 #include "Tensor/math_utils.h"
 #include "DLEngine/DLEngine.h"
-#include "Layers/CosLayer.h"
-#include "Layers/PowLayer.h"
-#include "Layers/ExpLayer.h"
-#include "Layers/LogLayer.h"
-#include "Layers/SinLayer.h"
-#include "Layers/TanLayer.h"
+#include "../../include/Layers/Functions/CosLayer.h"
+#include "../../include/Layers/Functions/PowLayer.h"
+#include "../../include/Layers/Functions/ExpLayer.h"
+#include "../../include/Layers/Functions/LogLayer.h"
+#include "../../include/Layers/Functions/SinLayer.h"
+#include "../../include/Layers/Functions/TanLayer.h"
 #include "Layers/Kernels/DeviceKernel.h"
 
 namespace cortex {

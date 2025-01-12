@@ -77,12 +77,12 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Tensor/Tensor.cpp.obj: CXX_COMPILER__C
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Tensor
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/AddLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/AddLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\AddLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/AddLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Operators/AddLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators\AddLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Layers/BaseLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/BaseLayer.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\BaseLayer.cpp.obj.d
@@ -140,12 +140,12 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/sub_kernel_cuda.cp
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\cuda
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/SubLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/SubLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\SubLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/SubLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Operators/SubLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators\SubLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/mul_kernel_cpu.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Kernels/x86/mul_kernel_cpu.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\x86\mul_kernel_cpu.cpp.obj.d
@@ -175,12 +175,12 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/div_kernel_cuda.cp
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\cuda
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/MulLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/MulLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\MulLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/MulLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Operators/MulLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators\MulLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Layers/TransposeLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/TransposeLayer.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\TransposeLayer.cpp.obj.d
@@ -203,12 +203,12 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/transpose_kernel_c
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\cuda
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/DivLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/DivLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\DivLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/DivLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Operators/DivLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators\DivLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/pow_kernel_cpu.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Kernels/x86/pow_kernel_cpu.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\x86\pow_kernel_cpu.cpp.obj.d
@@ -224,12 +224,12 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/pow_kernel_cuda.cp
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\cuda
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/PowLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/PowLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\PowLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/PowLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/PowLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\PowLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Tensor/math_utils.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Tensor/math_utils.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Tensor\math_utils.cpp.obj.d
@@ -280,47 +280,47 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/arctan_kernel_cpu.c
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\x86
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/ExpLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/ExpLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\ExpLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/ExpLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/ExpLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\ExpLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/LogLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/LogLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\LogLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/LogLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/LogLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\LogLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/SinLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/SinLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\SinLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/SinLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/SinLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\SinLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/CosLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/CosLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\CosLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/CosLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/CosLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\CosLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/TanLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/TanLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\TanLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/TanLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/TanLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\TanLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
-build CMakeFiles/Cortex++.dir/dl_core/src/Layers/aTanLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/aTanLayer.cpp || cmake_object_order_depends_target_Cortex++
-  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\aTanLayer.cpp.obj.d
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/aTanLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Functions/aTanLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions\aTanLayer.cpp.obj.d
   FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
   OBJECT_DIR = CMakeFiles\Cortex++.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Functions
 
 build CMakeFiles/Cortex++.dir/dl_core/src/Layers/BroadcastLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/BroadcastLayer.cpp || cmake_object_order_depends_target_Cortex++
   DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\BroadcastLayer.cpp.obj.d
@@ -350,6 +350,27 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Graphs/autograd_graph.cpp.obj: CXX_COM
   OBJECT_DIR = CMakeFiles\Cortex++.dir
   OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Graphs
 
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/nn/LinearLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/nn/LinearLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\nn\LinearLayer.cpp.obj.d
+  FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
+  OBJECT_DIR = CMakeFiles\Cortex++.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\nn
+
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/matmul_kernel_cpu.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Kernels/x86/matmul_kernel_cpu.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\x86\matmul_kernel_cpu.cpp.obj.d
+  FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
+  OBJECT_DIR = CMakeFiles\Cortex++.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Kernels\x86
+
+build CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/MatmulLayer.cpp.obj: CXX_COMPILER__Cortex.2b.2b_unscanned_Debug D$:/Coding/ML/Cortex++/dl_core/src/Layers/Operators/MatmulLayer.cpp || cmake_object_order_depends_target_Cortex++
+  DEP_FILE = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators\MatmulLayer.cpp.obj.d
+  FLAGS = -march=haswell -mfma -mavx2 -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/ML/Cortex++/dl_core/include -ID:/Coding/ML/Cortex++/thirdparty/googletest/googletest/include -ID:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/include
+  OBJECT_DIR = CMakeFiles\Cortex++.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cortex++.dir\dl_core\src\Layers\Operators
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Cortex++
@@ -358,7 +379,7 @@ build CMakeFiles/Cortex++.dir/dl_core/src/Graphs/autograd_graph.cpp.obj: CXX_COM
 #############################################
 # Link the executable Cortex++.exe
 
-build Cortex++.exe: CXX_EXECUTABLE_LINKER__Cortex.2b.2b_Debug CMakeFiles/Cortex++.dir/dl_core/src/DeviceAllocator/DeviceAllocator.cpp.obj CMakeFiles/Cortex++.dir/main.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/Buffer/Buffer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/Tensor.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/AddLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/BaseLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/DeviceKernel.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/add_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/add_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Random/RandomEngine.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/DLEngine/DLEngine.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sub_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/sub_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/SubLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/mul_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/div_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/mul_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/div_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/MulLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/TransposeLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/transpose_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/transpose_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/DivLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/pow_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/pow_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/PowLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/math_utils.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/exp_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/log_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sin_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/cos_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/tan_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/arctan_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/ExpLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/LogLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/SinLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/CosLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/TanLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/aTanLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/BroadcastLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/SumToLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sum_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Graphs/autograd_graph.cpp.obj
+build Cortex++.exe: CXX_EXECUTABLE_LINKER__Cortex.2b.2b_Debug CMakeFiles/Cortex++.dir/dl_core/src/DeviceAllocator/DeviceAllocator.cpp.obj CMakeFiles/Cortex++.dir/main.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/Buffer/Buffer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/Tensor.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/AddLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/BaseLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/DeviceKernel.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/add_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/add_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Random/RandomEngine.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/DLEngine/DLEngine.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sub_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/sub_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/SubLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/mul_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/div_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/mul_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/div_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/MulLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/TransposeLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/transpose_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/transpose_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/DivLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/pow_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/cuda/pow_kernel_cuda.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/PowLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Tensor/math_utils.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/exp_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/log_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sin_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/cos_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/tan_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/arctan_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/ExpLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/LogLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/SinLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/CosLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/TanLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Functions/aTanLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/BroadcastLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/SumToLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/sum_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Graphs/autograd_graph.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/nn/LinearLayer.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Kernels/x86/matmul_kernel_cpu.cpp.obj CMakeFiles/Cortex++.dir/dl_core/src/Layers/Operators/MatmulLayer.cpp.obj
   FLAGS = -march=haswell -mfma -mavx2 -g
   LINK_LIBRARIES = -lopenblas  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LD:/Coding/ML/Cortex++/thirdparty/OpenBLAS-0.3.28-x64-64/lib

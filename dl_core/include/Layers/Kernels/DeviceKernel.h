@@ -12,6 +12,7 @@ namespace cortex {
     typedef void (*sub_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*mul_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*div_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
+    typedef void (*matmul_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*pow_kernel)(const Tensor& a, const Tensor& b, const Tensor& result);
     typedef void (*exp_kernel)(const Tensor& a, const Tensor& result);
     typedef void (*log_kernel)(const Tensor& a, const Tensor& result);
@@ -31,6 +32,7 @@ namespace cortex {
     sub_kernel get_sub_kernel(DeviceType deviceType);
     mul_kernel get_mul_kernel(DeviceType deviceType);
     div_kernel get_div_kernel(DeviceType deviceType);
+    matmul_kernel get_matmul_kernel(DeviceType deviceType);
     pow_kernel get_pow_kernel(DeviceType deviceType);
     exp_kernel get_exp_kernel(DeviceType deviceType);
     log_kernel get_log_kernel(DeviceType deviceType);
@@ -40,8 +42,6 @@ namespace cortex {
     cos_kernel get_cos_kernel(DeviceType deviceType);
     tan_kernel get_tan_kernel(DeviceType deviceType);
     atan_kernel get_atan_kernel(DeviceType deviceType);
-
-
 
     transpose_kernel get_transpose_kernel(DeviceType deviceType);
     sum_kernel get_sum_kernel(DeviceType deviceType);

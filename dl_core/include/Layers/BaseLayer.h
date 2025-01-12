@@ -29,6 +29,7 @@ namespace cortex {
 
         std::vector<Tensor> m_inputs;
         std::vector<Tensor> m_outputs;
+        std::vector<Tensor> m_params;
     };;
 
 }

@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <memory>
 #include <stack>
-#include <iostream>
 #include <vector>
 #include "DeviceAllocator/DeviceAllocator.h"
 #include "Dtypes/Dtype.h"
@@ -239,24 +238,25 @@ namespace cortex {
         Tensor transpose(const uint32_t& dim0, const uint32_t &dim1);
 
         /**
-         * 
-         * @return
+         * Performs sum operation for every element in the tensor.
+         * @return A tensor of shape {1} that contains the value of the sum of each element in the tensor.
          */
         Tensor sum() const;
 
         /**
-         * Set the gradient of current tensor to be zeros.
+         * Sets the gradient of current tensor to be zeros.
          * This function would usually be called after each iteration in training.
          */
         void zero_grad() const;
 
         /**
-         *
+         * Creates the gradient of current tensor and set track tensor as true.
          */
         void requires_grad();
 
         /**
-         *
+         * Performs the backward pass for backpropagation.
+         * This function computes the gradients of all tensors that tracks gradients in the computational graph.
          */
         void backward();
 
@@ -277,6 +277,12 @@ namespace cortex {
          */
         Tensor operator+(const f32_t& scalar) const;
 
+        /**
+         * Overloads the '+' operator to perform element-wise addition with another scalar.
+         * @param scalar the other scalar to add the current tensor.
+         * @param tensor the tensor to be added by the scalar.
+         * @return A shallow copy to the current tensor after the addition.
+         */
         friend Tensor operator+(const f32_t& scalar, const Tensor& tensor);
 
         /**
@@ -300,6 +306,12 @@ namespace cortex {
          */
         Tensor operator-(const f32_t& scalar) const;
 
+        /**
+         * Overloads the '-' operator to perform element-wise subtraction with another scalar.
+         * @param scalar the other scalar to subtract the current tensor.
+         * @param tensor the tensor to be subtracted by the scalar.
+         * @return A shallow copy to the current tensor after the subtraction.
+         */
         friend Tensor operator-(const f32_t& scalar, const Tensor& tensor);
 
         /**
@@ -318,7 +330,7 @@ namespace cortex {
 
         /**
          * Overloads the `*` operator to perform element-wise multiplication with scalar value.
-         * @param scalar the scalar to be multiplied to the current tensor.
+         * @param scalar the scalar to multiply the current tensor.
          * @return A result tensor object that equals to the current tensor * scalar
          */
         Tensor operator*(const f32_t &scalar) const;
@@ -326,7 +338,7 @@ namespace cortex {
         /**
          * Overloads the '*' operator to perform element-wise multiplication with another scalar
          * @param scalar the other scalar to be multiplied to the current tensor
-         * @param tensor the tensor to be multiplied with the scalar
+         * @param tensor the tensor to be multiplied by the scalar
          * @return A shallow copy to the current tensor after the multiplication.
          */
         friend Tensor operator*(const f32_t& scalar, const Tensor& tensor);
@@ -352,6 +364,12 @@ namespace cortex {
          */
         Tensor operator/(const f32_t &scalar) const;
 
+        /**
+         * Overloads the '/' operator to perform element-wise division with another scalar.
+         * @param scalar the other scalar to divide the current tensor.
+         * @param tensor the tensor to be divided by the scalar.
+         * @return A shallow copy to the current tensor after the division.
+         */
         friend Tensor operator/(const f32_t& scalar, const Tensor& tensor);
 
         /**
@@ -360,6 +378,17 @@ namespace cortex {
          * @return A shallow copy of current tensor after the division.
          */
         Tensor operator/=(const Tensor& tensor);
+
+        /**
+         * Performs matrix multiplication with the given tensor.
+         * @note Computes the matrix product of current tensor and the input tensor.
+         * Note that the dimension of the tensors must be compatible for the matrix multiplication:
+         * - For 2D matrix, the column number of current tensor must match the row number of the input tensor.
+         * - For N-D tensor, the dimension other than row and column must support broadcast or the dimension must match together.
+         * @param tensor the input tensor to multiply with.
+         * @return A new tensor representing the result of the multiplication.
+         */
+        Tensor matmul(const Tensor& tensor) const;
 
         /**
          * Generate a tensor of given shape filled with one

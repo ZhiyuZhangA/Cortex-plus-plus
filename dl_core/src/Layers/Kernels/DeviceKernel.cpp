@@ -43,6 +43,15 @@ namespace cortex {
             throw std::runtime_error("Unknown device type!");
     }
 
+    matmul_kernel get_matmul_kernel(const DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return matmul_kernel_cpu;
+        // else if (deviceType == DeviceType::cuda)
+        //     return atan_kernel_cuda;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
+
     pow_kernel get_pow_kernel(const DeviceType deviceType) {
         if (deviceType == DeviceType::cpu)
             return pow_kernel_cpu;

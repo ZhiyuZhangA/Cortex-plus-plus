@@ -7,19 +7,21 @@ using namespace cortex;
 
 int main() {
 
-    const Tensor tensorA({1, 3, 2}, dtype::f32);
-    tensorA.initialize_with({7, 8, 9, 2, 11, 100});
-    const Tensor tensorB({2, 3, 2}, dtype::f32);
-    tensorB.initialize_with({1, 2, 30, 4, 10, 6, 7, 8, 9, 2, 11, 100});
+    RandomEngine rng;
+    // const auto tensorA = rng.normal({2, 3, 2});
+    // const auto tensorB = rng.normal({2, 2, 4});
+
+    const auto tensorA = Tensor({2, 3, 2}, dtype::f32, DeviceType::cpu, true);
+    const auto tensorB = Tensor({2, 2, 4}, dtype::f32, DeviceType::cpu, true);
+    tensorA.initialize_with({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
+    tensorB.initialize_with({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
+
+    std::cout << tensorA.to_string() << std::endl;
     std::cout << tensorB.to_string() << std::endl;
+    std::cout << "------" << std::endl;
 
-    Tensor res = (tensorA + tensorB) * tensorB / 4;
-
-    res.backward();
-
-    std::cout << "A: " << tensorA.grad()->to_string() << std::endl;
-    std::cout << "B: " << tensorB.grad()->to_string() << std::endl;
-
+    const auto res = tensorA.matmul(tensorB);
+    std::cout << res.to_string() << std::endl;
 
     return 0;
 }

@@ -3,15 +3,16 @@
 
 #include "Tensor/Tensor.h"
 #include "DLEngine/DLEngine.h"
-#include "Layers/AddLayer.h"
 #include "Layers/BroadcastLayer.h"
-#include "Layers/DivLayer.h"
-#include "Layers/MulLayer.h"
-#include "Layers/SubLayer.h"
+#include "Layers/Operators/DivLayer.h"
+#include "Layers/Operators/MulLayer.h"
+#include "Layers/Operators/SubLayer.h"
 #include "Layers/SumToLayer.h"
 #include "Layers/TransposeLayer.h"
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Graphs/autograd_graph.h"
+#include "Layers/Operators/AddLayer.h"
+#include "Layers/Operators/MatmulLayer.h"
 
 namespace cortex {
     Tensor::Tensor(const std::vector<uint32_t> &shape, const dtype dtype, const std::shared_ptr<DeviceAllocator> &alloc,
@@ -427,6 +428,28 @@ namespace cortex {
             ret.m_layer = std::make_shared<DivLayer>(this->m_dtype, this->m_buffer->device_type(), false);
             ret.m_layer->add_input(*this);
             ret.m_layer->add_input(other);
+            ret.m_layer->add_output(ret);
+        }
+
+        return ret;
+    }
+
+    Tensor Tensor::matmul(const Tensor &tensor) const {
+        // Check the compatibility of shape of current tensor and input tensor
+        const int col_a = this->m_shape[tensor.m_shape.size() - 1];
+        if (const int row_b = tensor.m_shape[tensor.m_shape.size() - 2]; col_a != row_b) {
+            throw std::invalid_argument("Tensor::matmul: shape mismatch! Trying to perform matmul with tensor of col " + std::to_string(col_a) + " and tensor with row " + std::to_string(row_b));
+        }
+
+        std::vector<uint32_t> target_shape = this->m_shape;
+        target_shape[target_shape.size() - 1] = tensor.m_shape[tensor.m_shape.size() - 1];
+        Tensor ret(target_shape, m_dtype, m_buffer->device_type(), false);
+        get_matmul_kernel(this->get_device())(*this, tensor, ret);
+
+        if (DLEngine::is_grad_mode()) {
+            ret.m_layer = std::make_shared<MatmulLayer>(ret.m_dtype, ret.m_buffer->device_type(), false);
+            ret.m_layer->add_input(*this);
+            ret.m_layer->add_input(tensor);
             ret.m_layer->add_output(ret);
         }
 

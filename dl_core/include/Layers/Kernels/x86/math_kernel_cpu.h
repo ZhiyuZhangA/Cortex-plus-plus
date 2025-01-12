@@ -39,6 +39,14 @@ namespace cortex {
     void mul_kernel_cpu(const Tensor& a, const Tensor& b, const Tensor& result);
 
     /**
+     * Performs matrix multiplication operation between two input tensor and came out with a result tensor
+     * @param a input tensor x
+     * @param b weight tensor w
+     * @param result the result tensor of x × w
+     */
+    void matmul_kernel_cpu(const Tensor& a, const Tensor& b, const Tensor& result);
+
+    /**
     * Performs element-wise power operation with base tensor a and exp tensor b, and came out with a result tensor
     * @param a the input tensor a (base)
     * @param b the input tensor b (exponent)
