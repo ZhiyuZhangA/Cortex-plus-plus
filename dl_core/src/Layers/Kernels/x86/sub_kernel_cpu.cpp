@@ -8,8 +8,8 @@ namespace cortex {
     void sub_vec_avx256(float* a, float* b, float* c, const int n) {
         const int len = (int)(n / BLOCK_SIZE) * BLOCK_SIZE;
         for (int i = 0; i < len; i+=BLOCK_SIZE) {
-            __m256 _a = _mm256_load_ps(a);
-            __m256 _b = _mm256_load_ps(b);
+            __m256 _a = _mm256_load_ps(a + i);
+            __m256 _b = _mm256_load_ps(b + i);
 
             _mm256_store_ps(c + i, _mm256_sub_ps(_a, _b));
         }
