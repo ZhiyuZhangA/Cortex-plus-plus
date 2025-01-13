@@ -225,17 +225,20 @@ namespace cortex {
     Tensor Tensor::transpose(const uint32_t& dim0, const uint32_t& dim1) {
         // In-place modification
         // Get the transposed shape
-        std::vector<uint32_t> transpose_dims(this->m_shape);
-        std::swap(transpose_dims[dim0], transpose_dims[dim1]);
+        std::vector<uint32_t> transposed_shape(this->m_shape);
+        std::swap(transposed_shape[dim0], transposed_shape[dim1]);
 
         // Create a new tensor with same data source
-        Tensor ret(transpose_dims, this->m_buffer, m_dtype, this->m_requires_grad);
+        Tensor ret(transposed_shape, m_dtype, m_buffer->device_alloc(), this->m_requires_grad);
         // Transpose the matrix
         get_transpose_kernel(this->m_buffer->device_type())(*this, ret, dim0, dim1, false);
 
         if (DLEngine::is_grad_mode()) {
             ret.m_layer = std::make_shared<TransposeLayer>(this->m_dtype, this->m_buffer->device_type(), false);
             ret.m_layer->add_input(*this);
+            const Tensor t_dims({2}, m_dtype, m_buffer->device_alloc(), false);
+            t_dims.initialize_with({static_cast<float>(dim0), static_cast<float>(dim1)});
+            ret.m_layer->add_input(t_dims);
             ret.m_layer->add_output(ret);
         }
 
@@ -436,14 +439,14 @@ namespace cortex {
 
     Tensor Tensor::matmul(const Tensor &tensor) const {
         // Check the compatibility of shape of current tensor and input tensor
-        const int col_a = this->m_shape[tensor.m_shape.size() - 1];
+        const int col_a = this->m_shape[this->m_shape.size() - 1];
         if (const int row_b = tensor.m_shape[tensor.m_shape.size() - 2]; col_a != row_b) {
             throw std::invalid_argument("Tensor::matmul: shape mismatch! Trying to perform matmul with tensor of col " + std::to_string(col_a) + " and tensor with row " + std::to_string(row_b));
         }
 
         std::vector<uint32_t> target_shape = this->m_shape;
         target_shape[target_shape.size() - 1] = tensor.m_shape[tensor.m_shape.size() - 1];
-        Tensor ret(target_shape, m_dtype, m_buffer->device_type(), false);
+        Tensor ret(target_shape, m_dtype, m_buffer->device_type(), true);
         get_matmul_kernel(this->get_device())(*this, tensor, ret);
 
         if (DLEngine::is_grad_mode()) {

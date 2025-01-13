@@ -157,6 +157,14 @@ namespace cortex {
         }
 
         /**
+         * Returns the dimension of current tensor
+         * @return the dimension of current tensor.
+         */
+        uint32_t dim() const {
+            return m_shape.size();
+        }
+
+        /**
          * Get the element at the specified index of the tensor
          * @param index the index to be queried in the tensor
          * @return the reference to the element located at the index

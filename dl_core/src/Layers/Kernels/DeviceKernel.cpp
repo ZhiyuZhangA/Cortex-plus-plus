@@ -145,8 +145,8 @@ namespace cortex {
     transpose_kernel get_transpose_kernel(const DeviceType deviceType) {
         if (deviceType == DeviceType::cpu)
             return transpose_kernel_cpu;
-        else if (deviceType == DeviceType::cuda)
-            return transpose_kernel_cuda;
+        // else if (deviceType == DeviceType::cuda)
+        //     return transpose_kernel_cuda;
         else
             throw std::runtime_error("Unknown device type!");
     }

@@ -28,7 +28,7 @@ namespace cortex {
                 continue;
 
             cur_node.grad_func()->backward();
-            for (auto input : cur_node.grad_func()->get_inputs()) {
+            for (const auto& input : cur_node.grad_func()->get_inputs()) {
                 q_front.push(input);
             }
         }
