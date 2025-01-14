@@ -33,7 +33,7 @@ set(HEADERS
         dl_core/include/Layers/Kernels/cuda/tranpose_kernel_cuda.h
         dl_core/include/Layers/Kernels/cuda/pow_kernel_cuda.h
         dl_core/include/Layers/Functions/PowLayer.h
-        dl_core/include/Tensor/math_utils.h
+        dl_core/include/Functions/math_utils.h
         dl_core/include/Layers/Kernels/x86/math_kernel_cpu.h
         dl_core/include/Layers/Functions/LogLayer.h
         dl_core/include/Layers/Functions/SinLayer.h
@@ -47,6 +47,8 @@ set(HEADERS
         dl_core/include/Tensor/TensorBaseImpl.h
         dl_core/include/Layers/nn/LinearLayer.h
         dl_core/include/Layers/Operators/MatmulLayer.h
+        dl_core/include/Functions/nn_utils.h
+        dl_core/include/Layers/Kernels/x86/nn_kernel_cpu.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -76,7 +78,7 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/include/avx2_extension/avx2_math_ext.h
         dl_core/src/Layers/Kernels/cuda/pow_kernel_cuda.cpp
         dl_core/src/Layers/Functions/PowLayer.cpp
-        dl_core/src/Tensor/math_utils.cpp
+        dl_core/src/Functions/math_utils.cpp
         dl_core/src/Layers/Kernels/x86/exp_kernel_cpu.cpp
         dl_core/src/Layers/Kernels/x86/log_kernel_cpu.cpp
         dl_core/src/Layers/Kernels/x86/sin_kernel_cpu.cpp
@@ -97,6 +99,8 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/nn/LinearLayer.cpp
         dl_core/src/Layers/Kernels/x86/matmul_kernel_cpu.cpp
         dl_core/src/Layers/Operators/MatmulLayer.cpp
+        dl_core/src/Functions/nn_utils.cpp
+        dl_core/src/Layers/Kernels/x86/linear_kernel_cpu.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)

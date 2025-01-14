@@ -111,7 +111,7 @@ namespace cortex {
     void atan_kernel_cpu(const Tensor& a, const Tensor& result);
 
     /**
-     *
+     * Performs transpose operation on cpu
      * @param a
      * @param result
      * @param dim0
@@ -121,7 +121,7 @@ namespace cortex {
     void transpose_kernel_cpu(const Tensor& a, const Tensor& result, uint32_t dim0, uint32_t dim1, bool in_place);
 
     /**
-     * 
+     * Performs sum operation on cpu
      * @param a
      * @param result 
      */

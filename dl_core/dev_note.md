@@ -72,5 +72,7 @@ dtype里面包含了每种类型
 已经dtype_enum
 
 
+Layer层只会负责我的计算部分
+而后续的params存储之类的，一概不负责
 
 

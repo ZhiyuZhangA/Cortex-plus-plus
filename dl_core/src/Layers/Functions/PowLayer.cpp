@@ -1,6 +1,6 @@
 #include "Layers/Functions/PowLayer.h"
 
-#include "Tensor/math_utils.h"
+#include "Functions/math_utils.h"
 #include "Tensor/Tensor.h"
 
 namespace cortex {

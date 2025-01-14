@@ -1,6 +1,6 @@
 #ifndef MATH_UTILS_H
 #define MATH_UTILS_H
-#include "Tensor.h"
+#include "Tensor/Tensor.h"
 
 namespace cortex {
 

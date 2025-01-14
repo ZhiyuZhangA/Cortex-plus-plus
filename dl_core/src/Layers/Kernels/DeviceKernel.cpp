@@ -5,6 +5,7 @@
 #include "Layers/Kernels/cuda/mul_kernel_cuda.h"
 #include "Layers/Kernels/cuda/sub_kernel_cuda.h"
 #include "Layers/Kernels/cuda/tranpose_kernel_cuda.h"
+#include "Layers/Kernels/x86/nn_kernel_cpu.h"
 
 namespace cortex {
     add_kernel get_add_kernel(const DeviceType deviceType) {
@@ -151,5 +152,13 @@ namespace cortex {
             throw std::runtime_error("Unknown device type!");
     }
 
+    linear_kernel get_linear_kernel(const DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return linear_kernel_cpu;
+        // else if (deviceType == DeviceType::cuda)
+        //     return transpose_kernel_cuda;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
 
 }

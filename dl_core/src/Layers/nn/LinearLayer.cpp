@@ -9,6 +9,7 @@ namespace cortex {
     LinearLayer::LinearLayer(bool supportQuantization) : LinearLayer(dtype::f32, DeviceType::cpu, supportQuantization) { }
 
     void LinearLayer::backward() {
+        // 直接对每个param进行反向传播
 
     }
 

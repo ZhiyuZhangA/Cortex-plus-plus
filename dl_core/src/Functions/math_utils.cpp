@@ -1,4 +1,4 @@
-#include "Tensor/math_utils.h"
+#include "Functions/math_utils.h"
 #include "DLEngine/DLEngine.h"
 #include "../../include/Layers/Functions/CosLayer.h"
 #include "../../include/Layers/Functions/PowLayer.h"

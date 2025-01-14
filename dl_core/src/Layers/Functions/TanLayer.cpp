@@ -1,6 +1,6 @@
-#include "../../../include/Layers/Functions/TanLayer.h"
-#include "../../../include/Tensor/math_utils.h"
-#include "../../../include/Tensor/Tensor.h"
+#include "Layers/Functions/TanLayer.h"
+#include "Functions/math_utils.h"
+#include "Tensor/Tensor.h"
 
 namespace cortex {
     TanLayer::TanLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {

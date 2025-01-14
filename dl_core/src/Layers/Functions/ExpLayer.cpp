@@ -1,6 +1,6 @@
 #include "Layers/Functions/ExpLayer.h"
 #include "Tensor/Tensor.h"
-#include "Tensor/math_utils.h"
+#include "Functions/math_utils.h"
 
 namespace cortex {
     ExpLayer::ExpLayer(const dtype dtype, const DeviceType deviceType, const bool supportQuantization) : BaseLayer(dtype, deviceType, supportQuantization) {
