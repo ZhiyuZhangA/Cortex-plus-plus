@@ -49,6 +49,8 @@ set(HEADERS
         dl_core/include/Layers/Operators/MatmulLayer.h
         dl_core/include/Functions/nn_utils.h
         dl_core/include/Layers/Kernels/x86/nn_kernel_cpu.h
+        dl_core/include/NN/Modules/Linear.h
+        dl_core/include/NN/Modules/BaseModule.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -101,6 +103,7 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/Operators/MatmulLayer.cpp
         dl_core/src/Functions/nn_utils.cpp
         dl_core/src/Layers/Kernels/x86/linear_kernel_cpu.cpp
+        dl_core/src/NN/Modules/Linear.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)

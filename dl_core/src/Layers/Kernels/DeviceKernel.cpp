@@ -161,4 +161,13 @@ namespace cortex {
             throw std::runtime_error("Unknown device type!");
     }
 
+    linear_kernel_no_bias get_linear_no_bias_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return linear_kernel_no_bias_cpu;
+        // else if (deviceType == DeviceType::cuda)
+        //     return transpose_kernel_cuda;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
+
 }

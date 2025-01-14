@@ -4,6 +4,7 @@
 
 namespace cortex {
     void linear_kernel_cpu(const Tensor& input, const Tensor& weight, const Tensor& bias, const Tensor& output);
+    void linear_kernel_no_bias_cpu(const Tensor& input, const Tensor& weight, const Tensor& output);
 }
 
 #endif
