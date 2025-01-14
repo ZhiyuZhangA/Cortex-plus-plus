@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-
 #include "Tensor/Tensor.h"
 #include "DLEngine/DLEngine.h"
 #include "Layers/BroadcastLayer.h"

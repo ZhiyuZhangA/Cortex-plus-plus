@@ -1,7 +1,4 @@
 #include "Layers/nn/LinearLayer.h"
-
-#include <iostream>
-
 #include "Tensor/Tensor.h"
 
 namespace cortex {

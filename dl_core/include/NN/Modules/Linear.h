@@ -1,7 +1,6 @@
 #ifndef LINEAR_H
 #define LINEAR_H
 #include "BaseModule.h"
-#include "Random/RandomEngine.h"
 
 namespace cortex {
 

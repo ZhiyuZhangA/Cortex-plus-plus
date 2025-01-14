@@ -1,10 +1,8 @@
 #include "Functions/nn_utils.h"
-
-#include <iostream>
-
 #include "DLEngine/DLEngine.h"
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Layers/nn/LinearLayer.h"
+#include "Layers/nn/ReLuLayer.h"
 
 namespace cortex {
     Tensor FLinear(const Tensor& input, const Tensor& weight, const Tensor& bias) {
@@ -56,5 +54,20 @@ namespace cortex {
 
         return ret;
     }
+
+    Tensor FReLu(const Tensor& input) {
+        Tensor ret(input.shape(), input.get_dtype(), input.get_device(), true);
+        get_relu_kernel(input.get_device())(input, ret);
+
+        if (DLEngine::is_grad_mode()) {
+            ret.grad_func() = std::make_shared<ReLuLayer>(input.get_dtype(), input.get_device(), false);
+            ret.grad_func()->add_input(input);
+            ret.grad_func()->add_output(ret);
+        }
+
+        return ret;
+    }
+
+
 
 }

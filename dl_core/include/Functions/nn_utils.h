@@ -26,6 +26,10 @@ namespace cortex {
      */
     Tensor FLinear(const Tensor& input, const Tensor& weight);
 
+
+    Tensor FReLu(const Tensor& input);
+
+
 }
 
 #endif //NN_UTILS_H

@@ -2,7 +2,6 @@
 #include "cblas.h"
 #include "immintrin.h"
 
-
 namespace cortex {
 
 #define BLOCK_SIZE 8
