@@ -148,7 +148,7 @@ namespace cortex {
     Tensor Tensor::broadcast_to(const std::vector<uint32_t> &target_shape) const {
         // Check whether current tensor support broadcast
         if (target_shape == this->m_shape) {
-            throw std::invalid_argument("Tensor::broadcast_to: No Need to broadcast! Target shape is the same as current shape!");
+            return *this;
         }
 
         Tensor ret(target_shape, this->m_dtype, this->get_device(), this->m_requires_grad);
@@ -183,6 +183,8 @@ namespace cortex {
     }
 
     Tensor Tensor::sum_to(const std::vector<uint32_t> &target_shape) const {
+        if (this->m_shape == target_shape) return *this;
+
         // Extend the shape if the dimension doesn't match
         auto res_shape = target_shape;
         if (this->m_shape.size() != target_shape.size()) {
@@ -223,7 +225,6 @@ namespace cortex {
     }
 
     Tensor Tensor::transpose(const uint32_t& dim0, const uint32_t& dim1) {
-        // In-place modification
         // Get the transposed shape
         std::vector<uint32_t> transposed_shape(this->m_shape);
         std::swap(transposed_shape[dim0], transposed_shape[dim1]);
@@ -444,7 +445,10 @@ namespace cortex {
             throw std::invalid_argument("Tensor::matmul: shape mismatch! Trying to perform matmul with tensor of col " + std::to_string(col_a) + " and tensor with row " + std::to_string(row_b));
         }
 
-        std::vector<uint32_t> target_shape = this->m_shape;
+        // The target shape is the shape of the largest tensor's shape
+        std::vector<uint32_t> target_shape = this->shape();
+        if (this->size() < tensor.size())
+            target_shape = tensor.shape();
         target_shape[target_shape.size() - 1] = tensor.m_shape[tensor.m_shape.size() - 1];
         Tensor ret(target_shape, m_dtype, m_buffer->device_type(), true);
         get_matmul_kernel(this->get_device())(*this, tensor, ret);

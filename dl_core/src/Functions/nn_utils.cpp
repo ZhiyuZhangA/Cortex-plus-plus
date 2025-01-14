@@ -1,4 +1,7 @@
 #include "Functions/nn_utils.h"
+
+#include <iostream>
+
 #include "DLEngine/DLEngine.h"
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Layers/nn/LinearLayer.h"
@@ -13,6 +16,7 @@ namespace cortex {
         // Set the output shape
         std::vector<uint32_t> output_shape = input.shape();
         output_shape[output_shape.size() - 1] = weight.shape()[weight.dim() - 2];
+
         Tensor ret(output_shape, input.get_dtype(), input.get_device(), input.enable_grad());
 
         // Directly compute the linear part

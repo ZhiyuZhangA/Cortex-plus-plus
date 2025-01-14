@@ -6,7 +6,6 @@ namespace cortex {
 #define BLOCK_SIZE 8
 
     // TODO: 将16个ymm用满
-
     void add_vec_avx256(float* a, float* b, float* c, const int n) {
         const int len = (int)(n / BLOCK_SIZE) * BLOCK_SIZE;
         for (int i = 0; i < len; i+=BLOCK_SIZE) {

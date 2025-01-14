@@ -484,7 +484,7 @@ namespace cortex {
 
     inline f32_t& Tensor::at(const std::vector<uint32_t> &index) const {
         if (index.size() != m_shape.size()) {
-            throw std::runtime_error("Index size does not match tensor dimension");
+            throw std::runtime_error("Indexing Error (Tensor::at): Index vector size does not match with tensor's dimension");
         }
 
         // In-bounds check

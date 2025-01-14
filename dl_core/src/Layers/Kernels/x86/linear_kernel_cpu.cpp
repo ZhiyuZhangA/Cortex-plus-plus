@@ -21,11 +21,10 @@ namespace cortex {
     void linear_bias_blas(const float* input, const float* weight, float* bias, float* output, const int& ri, const int& ci, const int& rw, const int& mat_cnt) {
         // first compute xw^T
         const int mat_x_size = ri * ci;
-        const int mat_w_size = ci * rw;
         const int mat_y_size = ri * rw;
 
         for (int i = 0; i < mat_cnt; i++) {
-            cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, ri, rw, ci, 1.0f, input + i * mat_x_size, ci, weight + i * mat_w_size, ci, 0.0f, output + i * mat_y_size, rw);
+            cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, ri, rw, ci, 1.0f, input + i * mat_x_size, ci, weight, ci, 0.0f, output + i * mat_y_size, rw);
 
             const int mat_offset = mat_y_size * i;
             // For all rows
@@ -60,11 +59,10 @@ namespace cortex {
     void linear_no_bias_blas(const float* input, const float* weight, float* output, const int& ri, const int& ci, const int& rw, const int& mat_cnt) {
         // first compute xw^T
         const int mat_x_size = ri * ci;
-        const int mat_w_size = ci * rw;
         const int mat_y_size = ri * rw;
 
         for (int i = 0; i < mat_cnt; i++) {
-            cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, ri, rw, ci, 1.0f, input + i * mat_x_size, ci, weight + i * mat_w_size, ci, 0.0f, output + i * mat_y_size, rw);
+            cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, ri, rw, ci, 1.0f, input + i * mat_x_size, ci, weight, ci, 0.0f, output + i * mat_y_size, rw);
         }
     }
 

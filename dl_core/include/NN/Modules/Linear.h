@@ -11,6 +11,10 @@ namespace cortex {
 
         Tensor forward(const Tensor& input) override;
 
+        Tensor get_weight() const;
+
+        Tensor get_bias() const;
+
     private:
         const bool& m_bias;
     };
