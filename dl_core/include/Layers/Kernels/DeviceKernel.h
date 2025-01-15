@@ -30,6 +30,7 @@ namespace cortex {
     typedef void (*linear_kernel)(const Tensor& input, const Tensor& weight, const Tensor& bias, const Tensor& output);
     typedef void (*linear_kernel_no_bias)(const Tensor& input, const Tensor& weight, const Tensor& output);
     typedef void (*relu_kernel)(const Tensor& input, const Tensor& output);
+    typedef Tensor (*drelu_kernel)(const Tensor& input);
 
     typedef void (*transpose_kernel)(const Tensor& a, const Tensor& result, uint32_t dim0, uint32_t dim1, bool in_place);
 
@@ -54,6 +55,7 @@ namespace cortex {
     linear_kernel get_linear_kernel(DeviceType deviceType);
     linear_kernel_no_bias get_linear_no_bias_kernel(DeviceType deviceType);
     relu_kernel get_relu_kernel(DeviceType deviceType);
+    drelu_kernel get_drelu_kernel(DeviceType deviceType);
 
 
 

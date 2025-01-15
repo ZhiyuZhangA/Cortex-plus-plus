@@ -179,4 +179,12 @@ namespace cortex {
             throw std::runtime_error("Unknown device type!");
     }
 
+    drelu_kernel get_drelu_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return drelu_kernel_cpu;
+        // else if (deviceType == DeviceType::cuda)
+        //     return transpose_kernel_cuda;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
 }

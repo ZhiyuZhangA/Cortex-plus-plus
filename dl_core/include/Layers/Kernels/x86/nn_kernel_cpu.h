@@ -6,6 +6,7 @@ namespace cortex {
     void linear_kernel_cpu(const Tensor& input, const Tensor& weight, const Tensor& bias, const Tensor& output);
     void linear_kernel_no_bias_cpu(const Tensor& input, const Tensor& weight, const Tensor& output);
     void relu_kernel_cpu(const Tensor& input, const Tensor& output);
+    Tensor drelu_kernel_cpu(const Tensor& input);
     void leaky_relu_kernel_cpu(const Tensor& input, const Tensor& output, const float& ng_slope);
 }
 
