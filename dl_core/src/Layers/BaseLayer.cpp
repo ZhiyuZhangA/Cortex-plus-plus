@@ -15,6 +15,10 @@ namespace cortex {
         this->m_outputs.push_back(output);
     }
 
+    void BaseLayer::add_param(const float &param) {
+        this->m_params.push_back(param);
+    }
+
     std::vector<Tensor> BaseLayer::get_inputs() const {
         return this->m_inputs;
     }

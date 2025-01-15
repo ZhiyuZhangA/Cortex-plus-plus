@@ -187,4 +187,18 @@ namespace cortex {
         else
             throw std::runtime_error("Unknown device type!");
     }
+
+    leaky_relu_kernel get_leaky_relu_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return leaky_relu_kernel_cpu;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
+
+    dleaky_relu_kernel get_dleaky_relu_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return dleaky_relu_kernel_cpu;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
 }

@@ -8,6 +8,7 @@ namespace cortex {
     void relu_kernel_cpu(const Tensor& input, const Tensor& output);
     Tensor drelu_kernel_cpu(const Tensor& input);
     void leaky_relu_kernel_cpu(const Tensor& input, const Tensor& output, const float& ng_slope);
+    Tensor dleaky_relu_kernel_cpu(const Tensor& input, const float& ng_slope);
 }
 
 #endif

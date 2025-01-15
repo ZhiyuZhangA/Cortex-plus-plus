@@ -1,7 +1,4 @@
 #include "NN/Modules/ReLu.h"
-
-#include <iostream>
-
 #include "Functions/nn_utils.h"
 
 namespace cortex {
@@ -11,5 +8,11 @@ namespace cortex {
 
     Tensor ReLu::forward(const Tensor& input) {
         return FReLu(input);
+    }
+
+    LeakyReLu::LeakyReLu(const dtype &dtype, const DeviceType &device, const float& slope) : BaseModule(dtype, device), m_slope(slope) { }
+
+    Tensor LeakyReLu::forward(const Tensor &input) {
+        return FLeakyReLu(input, m_slope);
     }
 }

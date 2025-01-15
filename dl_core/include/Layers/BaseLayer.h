@@ -18,6 +18,7 @@ namespace cortex {
 
         void add_input(const Tensor& input);
         void add_output(const Tensor& output);
+        void add_param(const float& param);
 
         std::vector<Tensor> get_inputs() const;
 
@@ -29,7 +30,7 @@ namespace cortex {
 
         std::vector<Tensor> m_inputs;
         std::vector<Tensor> m_outputs;
-        std::vector<Tensor> m_params;
+        std::vector<float> m_params;
     };;
 
 }
