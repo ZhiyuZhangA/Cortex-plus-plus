@@ -3,71 +3,64 @@
 
 #include <immintrin.h>
 
+#define SUPPORT_FMA_
+
 namespace cortex {
+
     /**
-     * Performs element-wise exponential operation
-     * @note From Stack Overflow: https://stackoverflow.com/a/49090523
-     * @param x the input vector
+     * 
+     * @param x
      * @return 
      */
-    inline __m256 _mm256_exp_ps (__m256 x)
-    {
-        __m256 t, f, p, r;
-        __m256i i, j;
+    inline __m256 _mm256_exp_ps(__m256 x) {
+        const __m256 p0 = _mm256_set1_ps(1.0);
+        const __m256 p1 = _mm256_set1_ps(0.5000000000f);
+        const __m256 p2 = _mm256_set1_ps(0.166666666666666667f);
+        const __m256 p3 = _mm256_set1_ps(0.0416666667f);
+        const __m256 p4 = _mm256_set1_ps(0.0083333333f);
+        const __m256 p5 = _mm256_set1_ps(0.0013888889f);
+        const __m256 p6 = _mm256_set1_ps(1.9841269841e-4);
+        const __m256 p7 = _mm256_set1_ps(2.4801587302e-5);
+        // const __m256 p8 = _mm256_set1_ps(2.7557319224e-6);
 
-        const __m256 l2e = _mm256_set1_ps (1.442695041f); /* log2(e) */
-        const __m256 l2h = _mm256_set1_ps (-6.93145752e-1f); /* -log(2)_hi */
-        const __m256 l2l = _mm256_set1_ps (-1.42860677e-6f); /* -log(2)_lo */
-        /* coefficients for core approximation to exp() in [-log(2)/2, log(2)/2] */
-        const __m256 c0 =  _mm256_set1_ps (0.041944388f);
-        const __m256 c1 =  _mm256_set1_ps (0.168006673f);
-        const __m256 c2 =  _mm256_set1_ps (0.499999940f);
-        const __m256 c3 =  _mm256_set1_ps (0.999956906f);
-        const __m256 c4 =  _mm256_set1_ps (0.999999642f);
+        __m256 y = _mm256_add_ps(p0, x);
+        __m256 term = x;
 
-        /* exp(x) = 2^i * e^f; i = rint (log2(e) * x), f = x - log(2) * i */
-        t = _mm256_mul_ps (x, l2e);      /* t = log2(e) * x */
-        r = _mm256_round_ps (t, _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC); /* r = rint (t) */
+#ifdef SUPPORT_FMA_
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p1, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p2, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p3, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p4, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p5, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p6, y);
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_fmadd_ps(term, p7, y);
 
-    #if USE_FMA
-        f = _mm256_fmadd_ps (r, l2h, x); /* x - log(2)_hi * r */
-        f = _mm256_fmadd_ps (r, l2l, f); /* f = x - log(2)_hi * r - log(2)_lo * r */
-    #else // USE_FMA
-        p = _mm256_mul_ps (r, l2h);      /* log(2)_hi * r */
-        f = _mm256_add_ps (x, p);        /* x - log(2)_hi * r */
-        p = _mm256_mul_ps (r, l2l);      /* log(2)_lo * r */
-        f = _mm256_add_ps (f, p);        /* f = x - log(2)_hi * r - log(2)_lo * r */
-    #endif // USE_FMA
+#else
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p1));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p2));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p3));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p4));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p5));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p6));
+        term = _mm256_mul_ps(term, x);
+        y = _mm256_add_ps(y, _mm256_mul_ps(term, p7));
+#endif
 
-        i = _mm256_cvtps_epi32(t);       /* i = (int)rint(t) */
-
-        /* p ~= exp (f), -log(2)/2 <= f <= log(2)/2 */
-        p = c0;                          /* c0 */
-    #if USE_FMA
-        p = _mm256_fmadd_ps (p, f, c1);  /* c0*f+c1 */
-        p = _mm256_fmadd_ps (p, f, c2);  /* (c0*f+c1)*f+c2 */
-        p = _mm256_fmadd_ps (p, f, c3);  /* ((c0*f+c1)*f+c2)*f+c3 */
-        p = _mm256_fmadd_ps (p, f, c4);  /* (((c0*f+c1)*f+c2)*f+c3)*f+c4 ~= exp(f) */
-    #else // USE_FMA
-        p = _mm256_mul_ps (p, f);        /* c0*f */
-        p = _mm256_add_ps (p, c1);       /* c0*f+c1 */
-        p = _mm256_mul_ps (p, f);        /* (c0*f+c1)*f */
-        p = _mm256_add_ps (p, c2);       /* (c0*f+c1)*f+c2 */
-        p = _mm256_mul_ps (p, f);        /* ((c0*f+c1)*f+c2)*f */
-        p = _mm256_add_ps (p, c3);       /* ((c0*f+c1)*f+c2)*f+c3 */
-        p = _mm256_mul_ps (p, f);        /* (((c0*f+c1)*f+c2)*f+c3)*f */
-        p = _mm256_add_ps (p, c4);       /* (((c0*f+c1)*f+c2)*f+c3)*f+c4 ~= exp(f) */
-    #endif // USE_FMA
-
-        /* exp(x) = 2^i * p */
-        j = _mm256_slli_epi32 (i, 23); /* i << 23 */
-        r = _mm256_castsi256_ps (_mm256_add_epi32 (j, _mm256_castps_si256 (p))); /* r = p * 2^i */
-
-        return r;
+        return y;
     }
-
-
-
 }
 
 #endif //AVX2_MATH_EXT_H
