@@ -6,6 +6,13 @@ namespace cortex {
 
     #define BLOCK_SIZE 8
 
+    /**
+     * https://martin.ankerl.com/2007/10/04/optimized-pow-approximation-for-java-and-c-c/
+     * @param base
+     * @param exp
+     * @param res
+     * @param n
+     */
     void pow_vec_avx256(float* base, float* exp, float* res, const int n) {
 
     }

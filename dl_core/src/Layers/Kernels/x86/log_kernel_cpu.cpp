@@ -6,10 +6,6 @@ namespace cortex {
 
 #define BLOCK_SIZE 8
 
-    void log_vec_avx256(float* base, float* exp, float* res, const int n) {
-
-    }
-
     /**
      * Implementation of log of base e using stl without simd acceleration.
      * @param value pointer to the input array. Each element represents a value for which the logarithm will be computed.
@@ -48,6 +44,7 @@ namespace cortex {
 
     void log_kernel_cpu(const Tensor& a, const Tensor& result) {
         log_plain_impl(a.ptr<f32_t>(), result.ptr<f32_t>(), a.size());
+        // log_vec_avx256(a.ptr<f32_t>(), result.ptr<f32_t>(), a.size());
     }
 
     void log2_kernel_cpu(const Tensor& a, const Tensor& result) {

@@ -71,10 +71,20 @@ libtorch底层使用的dtype是一个struct
 dtype里面包含了每种类型
 已经dtype_enum
 
-
 Layer层只会负责我的计算部分
 而后续的params存储之类的，一概不负责
 
 注意：广播操作有问题，在矩阵乘法当中，无法复制matrix
 
+构建一个模型类，继承自BaseModule
+拥有一个vector，放着的是其他的所有baseModule
+另一个baseModule，放着的是损失函数，
+我需要每次构建一个model的实话，前面的内容使用
+make_model({LinearLayer, ActivationLayer,...}, Loss)
+model.backward() -> loss.backward() + loss.graph->clear_grad;
+
+而与此同时，我也允许用户使用函数式变成来实现
+
+处理batch_size
+了解输入的是包含batch，还是不包含batch，否则在mse输出的内容
 

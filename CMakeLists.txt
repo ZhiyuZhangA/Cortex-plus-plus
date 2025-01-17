@@ -53,6 +53,12 @@ set(HEADERS
         dl_core/include/NN/Modules/BaseModule.h
         dl_core/include/Layers/nn/ReLuLayer.h
         dl_core/include/NN/Modules/ReLu.h
+        dl_core/include/Layers/nn/SigmoidLayer.h
+        dl_core/include/Layers/nn/MSELossLayer.h
+        dl_core/include/NN/Modules/Loss/MSELoss.h
+        dl_core/include/NN/Modules/Loss/BaseLoss.h
+        dl_core/include/Functions/loss.h
+        dl_core/include/avx2_extension/avx2_math_ext.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -79,7 +85,6 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/Kernels/cuda/transpose_kernel_cuda.cpp
         dl_core/src/Layers/Operators/DivLayer.cpp
         dl_core/src/Layers/Kernels/x86/pow_kernel_cpu.cpp
-        dl_core/include/avx2_extension/avx2_math_ext.h
         dl_core/src/Layers/Kernels/cuda/pow_kernel_cuda.cpp
         dl_core/src/Layers/Functions/PowLayer.cpp
         dl_core/src/Functions/math_utils.cpp
@@ -109,6 +114,11 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/nn/ReLuLayer.cpp
         dl_core/src/Layers/Kernels/x86/relu_kernel_cpu.cpp
         dl_core/src/NN/Modules/ReLu.cpp
+        dl_core/src/Layers/nn/SigmoidLayer.cpp
+        dl_core/src/Functions/loss.cpp
+        dl_core/src/Layers/nn/MSELossLayer.cpp
+        dl_core/src/Layers/Kernels/x86/mse_loss_kernel_cpu.cpp
+        dl_core/src/NN/Modules/Loss/MSELoss.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)

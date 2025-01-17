@@ -165,6 +165,14 @@ namespace cortex {
         }
 
         /**
+         * Returns the autograd-graph object of current tensor
+         * @return An autograd-graph
+         */
+        inline std::shared_ptr<Autograd_graph> graph() const {
+            return m_graph;
+        }
+
+        /**
          * Get the element at the specified index of the tensor
          * @param index the index to be queried in the tensor
          * @return the reference to the element located at the index

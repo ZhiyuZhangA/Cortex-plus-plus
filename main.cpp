@@ -6,8 +6,10 @@
 #include "Random/RandomEngine.h"
 #include "immintrin.h"
 #include "avx2_extension/avx2_math_ext.h"
+#include "NN/Modules/Loss/MSELoss.h"
 
 using namespace cortex;
+
 
 
 int main() {
@@ -20,22 +22,25 @@ int main() {
     //
     // std::cout << "Result:" << std::endl;
     // std::cout << res.to_string() << std::endl;
-    // std::cout << "X.grad:" << std::endl;
+    // std::cout << "X.grad:" < std::endl;
     // std::cout << tensorA.grad()->to_string() << std::endl;
     // std::cout << "Weight.grad:" << std::endl;
     // std::cout << linear.get_weight().grad()->to_string() << std::endl;
     // std::cout << "Bias.grad:" << std::endl;
     // std::cout << linear.get_bias().grad()->to_string() << std::endl;
 
-    float arr[8] = {0.4653, 0.7761, 0.7094, 0.5759, 0.1992, 0.7880, 0.4316, 0.6491};
+    Tensor label({2, 2}, dtype::f32 ,DeviceType::cpu, true);
+    Tensor prediction({2, 2}, dtype::f32, DeviceType::cpu, true);
 
-    // __m256 vec = _mm256_load_ps(arr);
-    // _mm256_store_ps(arr, _mm256_exp_ps(vec));
+    label.fill_(2.3f);
+    prediction.fill_(1.0f);
 
-    for (int i = 0; i < 8; i++) {
-        // std::cout << arr[i] << std::endl;
-        std::cout << std::exp(arr[i]) << std::endl;
-    }
+    MSELoss loss(dtype::f32, DeviceType::cpu, 2);
+    auto l = loss.forward(label, prediction);
+
+    l.backward();
+
+    std::cout << prediction.grad()->to_string() << std::endl;
 
     return 0;
 }

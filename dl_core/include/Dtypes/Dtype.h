@@ -34,11 +34,11 @@ namespace cortex {
     template <dtype dtype>
     using dtype_trait_t = typename dtype_trait<dtype>::type;
 
-    inline std::unordered_map<dtype, uint16_t> dtype_size_map = {
+    inline std::unordered_map<dtype, ui16_t> dtype_size_map = {
         {dtype::f32, 4}
     };
 
-    inline uint16_t get_dtype_size(const dtype type) {
+    inline ui16_t get_dtype_size(const dtype type) {
         return dtype_size_map[type];
     }
 
