@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include "Functions/loss.h"
+#include "Models/Sequential.h"
 #include "Tensor/Tensor.h"
 #include "Optimizers/BaseOptimizer.h"
 #include "NN/Modules/Linear.h"
@@ -32,22 +33,17 @@ std::vector<std::vector<f32_t>> Read_Boston() {
     return _data;
 }
 
-
 void boston_housing_price_prediction(const Tensor& input, const Tensor& label) {
-    Linear linear1(dtype::f32, DeviceType::cpu, 13, 30, true);
-    ReLu relu1(dtype::f32, DeviceType::cpu);
-    Linear linear2(dtype::f32, DeviceType::cpu, 30, 1, true);
-    MSELoss mseLoss(dtype::f32, DeviceType::cpu);
 
-    std::vector<std::shared_ptr<Tensor>> params = {linear1.get_weight(), linear1.get_bias(), linear2.get_weight(), linear2.get_bias()};
-
-    SGD sgd(params, 0.02f);
+    Sequential model({std::make_shared<Linear>(dtype::f32, DeviceType::cpu, 13, 30, true),
+                                 std::make_shared<ReLu>(dtype::f32, DeviceType::cpu),
+                                 std::make_shared<Linear>(dtype::f32, DeviceType::cpu, 30, 1, true)}, dtype::f32, DeviceType::cpu);
+    SGD sgd(model.get_params(), 0.01f);
 
     for (int i = 0; i < 50; i++) {
-        Tensor l1 = relu1.forward(linear1.forward(input));
-        Tensor l2 = linear2.forward(l1);
+        Tensor prediction = model.forward(input);
 
-        Tensor loss = FMSELoss(label, l2, 2);
+        Tensor loss = FMSELoss(label, prediction, 2);
         loss.backward();
         sgd.step();
         sgd.zero_grads();
@@ -56,7 +52,7 @@ void boston_housing_price_prediction(const Tensor& input, const Tensor& label) {
     }
 }
 
-void train() {
+void train_boston() {
     std::vector<std::vector<f32_t>> raw_data = Read_Boston();
 
     // Normalize the data

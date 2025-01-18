@@ -10,14 +10,14 @@ namespace cortex {
             : BaseModule(dtype, device), m_bias(bias) {
         // Initialize the weight parameter of size {out_features, in_features}
         const f32_t k = 1.0 / in_features;
-        auto weight = std::make_shared<Tensor>({out_features, in_features}, dtype, device, true);
+        const auto weight = std::make_shared<Tensor>(std::vector<uint32_t>({out_features, in_features}), dtype, device, true);
         m_randomEngine.uniform(-std::sqrt(k), std::sqrt(k), *weight);
         m_params.push_back(weight);
 
         // Initialize the bias parameter of size {1, out_features}
         if (bias) {
-            auto bias_term = std::make_shared<Tensor>({1, out_features}, dtype, device, true);
-            m_randomEngine.uniform(-std::sqrt(k), std::sqrt(k), bias_term);
+            const auto bias_term = std::make_shared<Tensor>(std::vector<uint32_t>({1, out_features}), dtype, device, true);
+            m_randomEngine.uniform(-std::sqrt(k), std::sqrt(k), *bias_term);
             m_params.push_back(bias_term);
         }
     }

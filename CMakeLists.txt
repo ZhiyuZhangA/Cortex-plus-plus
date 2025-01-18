@@ -60,6 +60,7 @@ set(HEADERS
         dl_core/include/Functions/loss.h
         dl_core/include/avx2_extension/avx2_math_ext.h
         dl_core/include/Optimizers/BaseOptimizer.h
+        dl_core/include/Models/Sequential.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp

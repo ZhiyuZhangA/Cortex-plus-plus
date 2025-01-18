@@ -18,6 +18,14 @@ namespace cortex {
          */
         virtual Tensor forward(const Tensor& input) = 0;
 
+        /**
+         * Get the parameters of current module
+         * @return a vector of tensor representing the parameters of current module
+         */
+        std::vector<std::shared_ptr<Tensor>> get_params() const {
+            return m_params;
+        }
+
     protected:
         ~BaseModule() = default;
 
