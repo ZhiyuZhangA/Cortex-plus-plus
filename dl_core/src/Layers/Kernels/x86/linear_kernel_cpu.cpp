@@ -30,7 +30,7 @@ namespace cortex {
             for (int j = 0; j < ri; j++) {
                 // For all columns
                 if (rw >= BLOCK_SIZE) {
-                    for (int k = 0; k < rw; k+=BLOCK_SIZE) {
+                    for (int k = 0; k + 7 < rw; k+=BLOCK_SIZE) {
                         __m256 _r = _mm256_load_ps(output + mat_offset + j * rw + k);
                         __m256 _b = _mm256_load_ps(bias + k);
                         _mm256_store_ps(output + mat_offset + j * rw + k, _mm256_add_ps(_b, _r));

@@ -1,4 +1,7 @@
 #include "Layers/nn/LinearLayer.h"
+
+#include <iostream>
+
 #include "Tensor/Tensor.h"
 
 namespace cortex {
@@ -19,8 +22,12 @@ namespace cortex {
             shape[shape.size() - 2] = m_inputs[1].shape()[m_inputs[1].dim() - 2];
             shape[shape.size() - 1] = m_inputs[1].shape()[m_inputs[1].dim() - 1];
 
+
+
             *(m_inputs[1].grad()) += m_outputs[0].grad()->transpose(m_outputs[0].dim() - 1, m_outputs[0].dim() - 2).matmul(m_inputs[0]).sum_to(shape);
         }
+
+
 
         // Bias term exists
         if (m_inputs.size() == 3) {

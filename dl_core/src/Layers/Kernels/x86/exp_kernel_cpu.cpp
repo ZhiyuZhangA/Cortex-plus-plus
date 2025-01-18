@@ -10,13 +10,14 @@ namespace cortex {
 
     void exp_vec_avx256(const float* value, float* res, const int n) {
         int i = 0;
-        for (; i < n; i+=BLOCK_SIZE) {
+        const int len = (int)(n / BLOCK_SIZE) * BLOCK_SIZE;
+        for (; i + 7 < len; i+=BLOCK_SIZE) {
             __m256 _a = _mm256_load_ps(value + i);
             _mm256_store_ps(res + i, _mm256_exp_ps(_a));
         }
 
         // Remaining element
-        for (; i < n; i++) {
+        for (i = n - n % BLOCK_SIZE; i < n; i++) {
             res[i] = std::exp(value[i]);
         }
     }

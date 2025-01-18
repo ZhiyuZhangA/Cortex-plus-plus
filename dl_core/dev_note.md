@@ -88,3 +88,10 @@ model.backward() -> loss.backward() + loss.graph->clear_grad;
 处理batch_size
 了解输入的是包含batch，还是不包含batch，否则在mse输出的内容
 
+
+今天去测试boston housing price prediction
+需要重新构建整个layer的方法，因为现在的状态是每次计算，都要重新构建计算图，我需要构建完一次以后，就完成了，因此我需要给每个module添加一个forward函数
+然后他们拥有baseLayer，如果是第一次，就构建计算图，而后续直接传入状态，状态作为一个enum或者uint8，然后可以有训练模式，动态模式
+然后直接去走计算本身，然后修改输出tensor的值，然后继续到下一个layer
+
+

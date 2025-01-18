@@ -1,4 +1,7 @@
 #include "Functions/nn_utils.h"
+
+#include <iostream>
+
 #include "DLEngine/DLEngine.h"
 #include "Layers/Kernels/DeviceKernel.h"
 #include "Layers/nn/LinearLayer.h"
@@ -7,7 +10,8 @@
 namespace cortex {
     Tensor FLinear(const Tensor& input, const Tensor& weight, const Tensor& bias) {
         // Check whether the shape match or not
-        if (input.shape()[input.dim() - 1] !=  weight.shape()[weight.dim() - 1]) {
+        if (input.shape()[input.dim() - 1] != weight.shape()[weight.dim() - 1]) {
+            // std::cout << vec_to_string(input.shape()) << " " << weight.shape()[weight.dim() - 1] << std::endl;
             throw std::invalid_argument("FLinear Error: Input tensor and Weight tensor must be compatible for matrix multiplication!");
         }
 
@@ -15,7 +19,7 @@ namespace cortex {
         std::vector<uint32_t> output_shape = input.shape();
         output_shape[output_shape.size() - 1] = weight.shape()[weight.dim() - 2];
 
-        Tensor ret(output_shape, input.get_dtype(), input.get_device(), input.enable_grad());
+        Tensor ret(output_shape, input.get_dtype(), input.get_device(), true);
 
         // Directly compute the linear part
         get_linear_kernel(input.get_device())(input, weight, bias, ret);
@@ -40,7 +44,7 @@ namespace cortex {
         // Set the output shape
         std::vector<uint32_t> output_shape = input.shape();
         output_shape[output_shape.size() - 1] = weight.shape()[weight.dim() - 2];
-        Tensor ret(output_shape, input.get_dtype(), input.get_device(), input.enable_grad());
+        Tensor ret(output_shape, input.get_dtype(), input.get_device(), true);
 
         // Directly compute the linear part
         get_linear_no_bias_kernel(input.get_device())(input, weight, ret);

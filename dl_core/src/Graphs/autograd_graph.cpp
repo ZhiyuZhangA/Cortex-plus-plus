@@ -1,5 +1,6 @@
 #include "Graphs/autograd_graph.h"
 
+#include <iostream>
 #include <queue>
 
 #include "Layers/BaseLayer.h"
@@ -18,6 +19,7 @@ namespace cortex {
         output.grad()->fill_(1.0);
         std::queue<Tensor> q_front;
         q_front.push(output);
+
         while (!q_front.empty()) {
             auto cur_node = q_front.front();
             q_front.pop();
@@ -28,6 +30,7 @@ namespace cortex {
                 continue;
 
             cur_node.grad_func()->backward();
+
             for (const auto& input : cur_node.grad_func()->get_inputs()) {
                 q_front.push(input);
             }

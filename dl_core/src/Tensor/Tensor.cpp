@@ -278,6 +278,7 @@ namespace cortex {
         if (m_graph == nullptr) {
             m_graph = std::make_shared<Autograd_graph>(*this);
         }
+
         m_graph->backward(*this);
     }
 

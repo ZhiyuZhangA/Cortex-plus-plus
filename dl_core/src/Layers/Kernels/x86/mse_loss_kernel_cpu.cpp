@@ -31,12 +31,12 @@ namespace cortex {
         int i = 0;
 
         if (n >= BLOCK_SIZE) {
-            for (; i < n; i+=BLOCK_SIZE) {
+            for (; i + 7 < n; i+=BLOCK_SIZE) {
                 __m256 _a = _mm256_load_ps(label + i);
                 __m256 _b = _mm256_load_ps(prediction + i);
                 __m256 _c = _mm256_sub_ps(_a, _b);
 
-                _mm256_add_ps(vec_sum, _mm256_mul_ps(_c, _c));
+                vec_sum = _mm256_add_ps(vec_sum, _mm256_mul_ps(_c, _c));
             }
 
             // Summing the m256
@@ -50,7 +50,7 @@ namespace cortex {
         }
 
         // Remaining Elements
-        for (; i < n; i++) {
+        for (i = n - n % BLOCK_SIZE; i < n; i++) {
             total_sum += (label[i] - prediction[i]) * (label[i] - prediction[i]);
         }
 

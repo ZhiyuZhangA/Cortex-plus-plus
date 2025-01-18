@@ -14,6 +14,11 @@ namespace cortex {
 
         Tensor get_bias() const;
 
+        Tensor* get_weight_ptr() { return &(this->m_params[0]); }
+
+        Tensor* get_bias_ptr() { return &(this->m_params[1]); }
+
+
     private:
         const bool& m_bias;
     };

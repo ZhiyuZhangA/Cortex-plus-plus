@@ -1,4 +1,7 @@
 #include "Functions/loss.h"
+
+#include <iostream>
+
 #include "DLEngine/DLEngine.h"
 #include "Layers/BaseLayer.h"
 #include "Layers/Kernels/DeviceKernel.h"
