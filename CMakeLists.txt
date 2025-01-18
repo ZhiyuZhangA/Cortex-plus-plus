@@ -121,6 +121,7 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/Kernels/x86/mse_loss_kernel_cpu.cpp
         dl_core/src/NN/Modules/Loss/MSELoss.cpp
         Examples/BostonHousingPredictions.cpp
+        dl_core/include/Models/BaseModel.h
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)

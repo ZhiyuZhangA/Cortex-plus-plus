@@ -10,31 +10,31 @@ namespace cortex {
             : BaseModule(dtype, device), m_bias(bias) {
         // Initialize the weight parameter of size {out_features, in_features}
         const f32_t k = 1.0 / in_features;
-        auto weight = m_randomEngine.uniform({out_features, in_features}, -std::sqrt(k), std::sqrt(k));
-        weight.requires_grad();
+        auto weight = std::make_shared<Tensor>({out_features, in_features}, dtype, device, true);
+        m_randomEngine.uniform(-std::sqrt(k), std::sqrt(k), *weight);
         m_params.push_back(weight);
 
         // Initialize the bias parameter of size {1, out_features}
         if (bias) {
-            auto bias_term = m_randomEngine.uniform({1, out_features}, -std::sqrt(k), std::sqrt(k));
-            bias_term.requires_grad();
+            auto bias_term = std::make_shared<Tensor>({1, out_features}, dtype, device, true);
+            m_randomEngine.uniform(-std::sqrt(k), std::sqrt(k), bias_term);
             m_params.push_back(bias_term);
         }
     }
 
     Tensor Linear::forward(const Tensor& input) {
         if (m_bias)
-            return FLinear(input, m_params[0], m_params[1]);
+            return FLinear(input, *(m_params[0]), *(m_params[1]));
 
         // Return no bias version
-        return FLinear(input, m_params[0]);
+        return FLinear(input, *(m_params[0]));
     }
 
-    Tensor Linear::get_weight() const {
+    std::shared_ptr<Tensor> Linear::get_weight() const {
         return m_params[0];
     }
 
-    Tensor Linear::get_bias() const {
+    std::shared_ptr<Tensor> Linear::get_bias() const {
         if (!m_bias)
             throw std::runtime_error("No bias tensor provided in Linear Layer!");
         return m_params[1];

@@ -39,7 +39,7 @@ void boston_housing_price_prediction(const Tensor& input, const Tensor& label) {
     Linear linear2(dtype::f32, DeviceType::cpu, 30, 1, true);
     MSELoss mseLoss(dtype::f32, DeviceType::cpu);
 
-    std::vector<Tensor*> params = {linear1.get_weight_ptr(), linear1.get_bias_ptr(), linear2.get_weight_ptr(), linear2.get_bias_ptr()};
+    std::vector<std::shared_ptr<Tensor>> params = {linear1.get_weight(), linear1.get_bias(), linear2.get_weight(), linear2.get_bias()};
 
     SGD sgd(params, 0.02f);
 

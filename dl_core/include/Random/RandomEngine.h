@@ -21,19 +21,27 @@ namespace cortex {
 
         /**
          * Generate uniformly distributed random values within [0, 1] both inclusive for tensor.
-         * @param dim the dimension of the tensor
+         * @param shape the dimension of the tensor
          * @return A tensor of type T (fp32 in default) filled with random numbers in the range [0, 1] from uniform distribution
          */
-        Tensor uniform(const std::vector<ui32_t>& dim);
+        Tensor uniform(const std::vector<ui32_t>& shape);
 
         /**
          * Generate uniformly distributed random values within [a, b) both inclusive for tensor.
-         * @param dim the dimension of the tensor
+         * @param shape the shape of the tensor
          * @param a the lower bound of the distribution (included)
          * @param b the upper bound of the distribution (not included)
          * @return A tensor of type (fp32 in default) filled with random numbers in the range [a, b) from uniform distribution
          */
-        Tensor uniform(const std::vector<ui32_t>& dim, const f32_t& a, const f32_t& b);
+        Tensor uniform(const std::vector<ui32_t>& shape, const f32_t& a, const f32_t& b);
+
+        /**
+         * Generate uniformly distributed random values within [a, b) both inclusive for the input tensor.
+         * @param a the lower bound of the distribution (included)
+         * @param b the upper bound of the distribution (not included)
+         * @param input a reference to the input tensor that will be filled with random numbers in the range [a, b) from uniform distribution.
+         */
+        void uniform(const f32_t& a, const f32_t& b, const Tensor& input);
 
         /**
          * Generate normally distributed random values within [0, 1] both inclusive for tensor.

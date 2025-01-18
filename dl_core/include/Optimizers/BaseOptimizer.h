@@ -9,7 +9,7 @@ namespace cortex {
     public:
         virtual ~BaseOptimizer() = default;
 
-        explicit BaseOptimizer(const std::vector<Tensor*>& parameters, const float& lr = 0.01f) : m_lr(lr) {
+        explicit BaseOptimizer(const std::vector<std::shared_ptr<Tensor>>& parameters, const float& lr = 0.01f) : m_lr(lr) {
             for (const auto& parameter : parameters) {
                 m_parameters.emplace_back(parameter);
             }
@@ -25,13 +25,13 @@ namespace cortex {
 
     protected:
         std::shared_ptr<Autograd_graph> m_graph;
-        std::vector<Tensor*> m_parameters;
+        std::vector<std::shared_ptr<Tensor>> m_parameters;
         float m_lr;
     };
 
     class SGD final : public BaseOptimizer {
     public:
-        SGD(const std::vector<Tensor*> &parameters, const float &lr)
+        SGD(const std::vector<std::shared_ptr<Tensor>> &parameters, const float &lr)
             : BaseOptimizer(parameters, lr) { }
 
         void step() override {

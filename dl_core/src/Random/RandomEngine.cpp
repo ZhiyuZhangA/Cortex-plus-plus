@@ -7,14 +7,21 @@ namespace cortex {
         gen = std::mt19937(rd());
     }
 
-    Tensor RandomEngine::uniform(const std::vector<ui32_t> &dim) {
+    Tensor RandomEngine::uniform(const std::vector<ui32_t> &shape) {
         std::uniform_real_distribution<f32_t> dist;
-        return generate_tensor<f32_t>(dim, dist);
+        return generate_tensor<f32_t>(shape, dist);
     }
 
-    Tensor RandomEngine::uniform(const std::vector<ui32_t> &dim, const f32_t &a, const f32_t &b) {
+    Tensor RandomEngine::uniform(const std::vector<ui32_t> &shape, const f32_t &a, const f32_t &b) {
         std::uniform_real_distribution<f32_t> dist(a, b);
-        return generate_tensor<f32_t>(dim, dist);
+        return generate_tensor<f32_t>(shape, dist);
+    }
+
+    void RandomEngine::uniform(const f32_t &a, const f32_t &b, const Tensor &input) {
+        std::uniform_real_distribution<f32_t> dist(a, b);
+        for (auto* ptr = input.ptr<f32_t>(); ptr != input.end<f32_t>(); ptr++) {
+            *ptr = dist(gen);
+        }
     }
 
     Tensor RandomEngine::normal(const std::vector<ui32_t> &dim) {
