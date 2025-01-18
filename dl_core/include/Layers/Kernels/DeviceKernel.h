@@ -32,10 +32,11 @@ namespace cortex {
     typedef Tensor (*drelu_kernel)(const Tensor& input);
     typedef void (*leaky_relu_kernel)(const Tensor& input, const Tensor& output, const float& ng_slope);
     typedef Tensor (*dleaky_relu_kernel)(const Tensor& input, const float& ng_slope);
-
+    typedef void (*sigmoid_kernel)(const Tensor& input, const Tensor& result);
     typedef void (*mse_loss_kernel)(const Tensor& label, const Tensor& prediction, const Tensor& output, uint8_t mode);
 
     typedef void (*transpose_kernel)(const Tensor& a, const Tensor& result, uint32_t dim0, uint32_t dim1, bool in_place);
+
 
     add_kernel get_add_kernel(DeviceType deviceType);
     sub_kernel get_sub_kernel(DeviceType deviceType);
@@ -61,6 +62,7 @@ namespace cortex {
     drelu_kernel get_drelu_kernel(DeviceType deviceType);
     leaky_relu_kernel get_leaky_relu_kernel(DeviceType deviceType);
     dleaky_relu_kernel get_dleaky_relu_kernel(DeviceType deviceType);
+    sigmoid_kernel get_sigmoid_kernel(DeviceType deviceType);
 
     mse_loss_kernel get_mse_loss_kernel(DeviceType deviceType);
 

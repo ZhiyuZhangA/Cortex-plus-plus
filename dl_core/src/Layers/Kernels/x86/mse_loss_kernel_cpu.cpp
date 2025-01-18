@@ -10,7 +10,7 @@ namespace cortex {
 
     void mse_none_reduction_avx256(const float* label, const float* prediction, float* output, const int& n) {
         int i = 0;
-        for (; i < n; i+=BLOCK_SIZE) {
+        for (; i + 7 < n; i+=BLOCK_SIZE) {
             __m256 _a = _mm256_load_ps(label + i);
             __m256 _b = _mm256_load_ps(prediction + i);
             __m256 _c = _mm256_sub_ps(_a, _b);
@@ -19,7 +19,7 @@ namespace cortex {
         }
 
         // Remaining Elements
-        for (; i < n; i++) {
+        for (i = n - n % BLOCK_SIZE; i < n; i++) {
             output[i] = (label[i] - prediction[i]) * (label[i] - prediction[i]);
         }
     }

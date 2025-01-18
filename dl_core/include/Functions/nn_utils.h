@@ -55,6 +55,14 @@ namespace cortex {
      */
     Tensor FLeakyReLu(const Tensor& input, const float& ng_slope);
 
+    /**
+     * This function applies Sigmoid activation function to the input tensor.
+     * @param input the input tensor
+     * @return A new Tensor object with the same shape as the input tensor, where each
+     *         element has been transformed using the sigmoid activation function.
+     */
+    Tensor FSigmoid(const Tensor& input);
+
 
 }
 

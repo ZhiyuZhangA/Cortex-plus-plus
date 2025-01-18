@@ -61,6 +61,7 @@ set(HEADERS
         dl_core/include/avx2_extension/avx2_math_ext.h
         dl_core/include/Optimizers/BaseOptimizer.h
         dl_core/include/Models/Sequential.h
+        dl_core/include/NN/Modules/Sigmoid.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -123,6 +124,8 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/NN/Modules/Loss/MSELoss.cpp
         Examples/BostonHousingPredictions.cpp
         dl_core/include/Models/BaseModel.h
+        dl_core/src/Layers/Kernels/x86/sigmoid_kernel_cpu.cpp
+        dl_core/src/NN/Modules/Sigmoid.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)
