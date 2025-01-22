@@ -5,9 +5,9 @@
 #include "Models/Sequential.h"
 #include "Tensor/Tensor.h"
 #include "Optimizers/BaseOptimizer.h"
-#include "NN/Modules/Linear.h"
-#include "NN/Modules/ReLu.h"
-#include "NN/Modules/Loss/MSELoss.h"
+#include "Modules/Linear.h"
+#include "Modules/ReLu.h"
+#include "Modules/Loss/MSELoss.h"
 
 using namespace cortex;
 

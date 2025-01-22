@@ -1,6 +1,6 @@
 #ifndef SEQUENTIAL_H
 #define SEQUENTIAL_H
-#include "NN/Modules/BaseModule.h"
+#include "Modules/BaseModule.h"
 
 namespace cortex {
     class Sequential final : public BaseModule {

@@ -1,8 +1,6 @@
 #include <iostream>
-
 #include "Tensor/Tensor.h"
 #include "immintrin.h"
-#include "Layers/Kernels/x86/math_kernel_cpu.h"
 
 namespace cortex {
 
@@ -28,29 +26,26 @@ namespace cortex {
         float total_sum = 0;
         __m256 vec_sum = _mm256_setzero_ps();
 
-        int i = 0;
+        const int len = (n / BLOCK_SIZE) * BLOCK_SIZE;
+        for (int i = 0; i < len; i+=BLOCK_SIZE) {
+            __m256 _a = _mm256_load_ps(label + i);
+            __m256 _b = _mm256_load_ps(prediction + i);
+            __m256 _c = _mm256_sub_ps(_a, _b);
 
-        if (n >= BLOCK_SIZE) {
-            for (; i + 7 < n; i+=BLOCK_SIZE) {
-                __m256 _a = _mm256_load_ps(label + i);
-                __m256 _b = _mm256_load_ps(prediction + i);
-                __m256 _c = _mm256_sub_ps(_a, _b);
-
-                vec_sum = _mm256_add_ps(vec_sum, _mm256_mul_ps(_c, _c));
-            }
-
-            // Summing the m256
-            __m128 low = _mm256_castps256_ps128(vec_sum);
-            __m128 high = _mm256_extractf128_ps(vec_sum, 1);
-            __m128 sum128 = _mm_add_ps(low, high);
-
-            sum128 = _mm_hadd_ps(sum128, sum128);
-            sum128 = _mm_hadd_ps(sum128, sum128);
-            total_sum += _mm_cvtss_f32(sum128);
+            vec_sum = _mm256_add_ps(vec_sum, _mm256_mul_ps(_c, _c));
         }
 
+        // Summing the m256
+        const __m128 low = _mm256_castps256_ps128(vec_sum);
+        const __m128 high = _mm256_extractf128_ps(vec_sum, 1);
+        __m128 sum128 = _mm_add_ps(low, high);
+
+        sum128 = _mm_hadd_ps(sum128, sum128);
+        sum128 = _mm_hadd_ps(sum128, sum128);
+        total_sum += _mm_cvtss_f32(sum128);
+
         // Remaining Elements
-        for (i = n - n % BLOCK_SIZE; i < n; i++) {
+        for (int i = n - n % BLOCK_SIZE; i < n; i++) {
             total_sum += (label[i] - prediction[i]) * (label[i] - prediction[i]);
         }
 

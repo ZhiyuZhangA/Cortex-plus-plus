@@ -49,19 +49,20 @@ set(HEADERS
         dl_core/include/Layers/Operators/MatmulLayer.h
         dl_core/include/Functions/nn_utils.h
         dl_core/include/Layers/Kernels/x86/nn_kernel_cpu.h
-        dl_core/include/NN/Modules/Linear.h
-        dl_core/include/NN/Modules/BaseModule.h
+        dl_core/include/Modules/Linear.h
+        dl_core/include/Modules/BaseModule.h
         dl_core/include/Layers/nn/ReLuLayer.h
-        dl_core/include/NN/Modules/ReLu.h
+        dl_core/include/Modules/ReLu.h
         dl_core/include/Layers/nn/SigmoidLayer.h
         dl_core/include/Layers/nn/MSELossLayer.h
-        dl_core/include/NN/Modules/Loss/MSELoss.h
-        dl_core/include/NN/Modules/Loss/BaseLoss.h
+        dl_core/include/Modules/Loss/MSELoss.h
+        dl_core/include/Modules/Loss/BaseLoss.h
         dl_core/include/Functions/loss.h
         dl_core/include/avx2_extension/avx2_math_ext.h
         dl_core/include/Optimizers/BaseOptimizer.h
         dl_core/include/Models/Sequential.h
-        dl_core/include/NN/Modules/Sigmoid.h
+        dl_core/include/Modules/Sigmoid.h
+        dl_core/include/avx2_extension/avx2_common_ext.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -113,19 +114,20 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/Operators/MatmulLayer.cpp
         dl_core/src/Functions/nn_utils.cpp
         dl_core/src/Layers/Kernels/x86/linear_kernel_cpu.cpp
-        dl_core/src/NN/Modules/Linear.cpp
+        dl_core/src/Modules/Linear.cpp
         dl_core/src/Layers/nn/ReLuLayer.cpp
         dl_core/src/Layers/Kernels/x86/relu_kernel_cpu.cpp
-        dl_core/src/NN/Modules/ReLu.cpp
+        dl_core/src/Modules/ReLu.cpp
         dl_core/src/Layers/nn/SigmoidLayer.cpp
         dl_core/src/Functions/loss.cpp
         dl_core/src/Layers/nn/MSELossLayer.cpp
         dl_core/src/Layers/Kernels/x86/mse_loss_kernel_cpu.cpp
-        dl_core/src/NN/Modules/Loss/MSELoss.cpp
+        dl_core/src/Modules/Loss/MSELoss.cpp
         Examples/BostonHousingPredictions.cpp
         dl_core/include/Models/BaseModel.h
         dl_core/src/Layers/Kernels/x86/sigmoid_kernel_cpu.cpp
-        dl_core/src/NN/Modules/Sigmoid.cpp
+        dl_core/src/Modules/Sigmoid.cpp
+        dl_core/src/Layers/Kernels/x86/softmax_kernel_cpu.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)
