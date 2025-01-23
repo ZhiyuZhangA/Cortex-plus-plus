@@ -14,5 +14,4 @@ namespace cortex {
 
 }
 
-
 #endif

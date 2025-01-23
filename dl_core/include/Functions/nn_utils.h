@@ -63,6 +63,14 @@ namespace cortex {
      */
     Tensor FSigmoid(const Tensor& input);
 
+    /**
+     * This function applies Softmax activation function to the input tensor.
+     * @param input the input tensor
+     * @return A new Tensor object with the same shape as the input tensor, where each
+     *         element has been transformed using the softmax activation function.
+     */
+    Tensor FSoftmax(const Tensor& input);
+
 
 }
 

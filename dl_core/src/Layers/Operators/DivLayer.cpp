@@ -1,4 +1,7 @@
 #include "../../../include/Layers/Operators/DivLayer.h"
+
+#include <iostream>
+
 #include "../../../include/Tensor/Tensor.h"
 
 namespace cortex {
@@ -10,10 +13,11 @@ namespace cortex {
 
     void DivLayer::backward() {
         if (m_inputs[0].enable_grad())
-            *(m_inputs[0].grad()) += 1.0f / m_inputs[1] * *(m_outputs[0].grad());
+            *(m_inputs[0].grad()) += (1.0f / m_inputs[1] * *(m_outputs[0].grad())).sum_to(m_inputs[0].shape());
 
-        if (m_inputs[1].enable_grad())
-            *(m_inputs[1].grad()) -= m_inputs[0] * 1.0f / (m_inputs[1] * m_inputs[1]) * *(m_outputs[0].grad());
+        if (m_inputs[1].enable_grad()) {
+            *(m_inputs[1].grad()) -= (m_inputs[0] / (m_inputs[1] * m_inputs[1]) * *(m_outputs[0].grad())).sum_to(m_inputs[1].shape());
+        }
     }
 
 

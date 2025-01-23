@@ -186,7 +186,7 @@ namespace cortex {
 
         // Extend the shape if the dimension doesn't match
         auto res_shape = target_shape;
-        if (this->m_shape.size() != target_shape.size()) {
+        if (this->m_shape.size() < target_shape.size()) {
             res_shape = extend_shape(target_shape, this->m_shape);
         }
 
@@ -404,6 +404,7 @@ namespace cortex {
         const std::vector<uint32_t> target_shape = broadcast_shape(this->m_shape, tensor.m_shape);
         const Tensor this_broadcast = (this->m_shape != target_shape && this->m_size != 1) ? this->broadcast_to(target_shape) : *this;
         const Tensor other_broadcast = (tensor.m_shape != target_shape && tensor.m_size != 1) ? tensor.broadcast_to(target_shape) : tensor;
+
         Tensor ret(target_shape, m_dtype, m_buffer->device_alloc(), this->m_requires_grad || other_broadcast.m_requires_grad);
         get_div_kernel(m_buffer->device_type())(this_broadcast, other_broadcast, ret);
 

@@ -215,4 +215,18 @@ namespace cortex {
         else
             throw std::runtime_error("Unknown device type!");
     }
+
+    softmax_kernel get_softmax_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return softmax_kernel_cpu;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
+
+    dsoftmax_kernel get_dsoftmax_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return dsoftmax_kernel_cpu;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
 }

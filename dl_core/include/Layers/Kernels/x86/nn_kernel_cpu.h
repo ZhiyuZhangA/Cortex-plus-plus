@@ -14,6 +14,7 @@ namespace cortex {
     Tensor dleaky_relu_kernel_cpu(const Tensor& input, const float& ng_slope);
     void sigmoid_kernel_cpu(const Tensor& input, const Tensor& result);
     void softmax_kernel_cpu(const Tensor& input, const Tensor& output);
+    Tensor dsoftmax_kernel_cpu(const Tensor& softmax);
 
     // Loss Functions
     void mse_loss_kernel_cpu(const Tensor& label, const Tensor& prediction, const Tensor& output, uint8_t mode);

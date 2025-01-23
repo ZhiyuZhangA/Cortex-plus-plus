@@ -1,6 +1,6 @@
 #include "Layers/Kernels/x86/math_kernel_cpu.h"
 #include "immintrin.h"
-#include <cmath>
+#include "avx2_extension/avx2_common_ext.h"
 
 namespace cortex {
 
@@ -14,13 +14,7 @@ namespace cortex {
             sum_vec = _mm256_add_ps(sum_vec, vec);
         }
 
-        __m128 low = _mm256_castps256_ps128(sum_vec);
-        __m128 high = _mm256_extractf128_ps(sum_vec, 1);
-        __m128 sum128 = _mm_add_ps(low, high);
-
-        sum128 = _mm_hadd_ps(sum128, sum128);
-        sum128 = _mm_hadd_ps(sum128, sum128);
-        float sum = _mm_cvtss_f32(sum128);
+        float sum = sum_m256(sum_vec);
 
         for (i = n - n % BLOCK_SIZE; i < n; ++i) {
             sum += data[i];

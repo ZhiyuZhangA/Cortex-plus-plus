@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Layers/Kernels/x86/math_kernel_cpu.h"
 #include "immintrin.h"
 
@@ -20,6 +22,7 @@ namespace cortex {
         }
     }
 
+    // b is a scalar
     void div_scalar_avx256(float* a, const float* b, float* c, const int n) {
         __m256 _b = _mm256_set1_ps(b[0]);
         const int len = (int)(n / BLOCK_SIZE) * BLOCK_SIZE;

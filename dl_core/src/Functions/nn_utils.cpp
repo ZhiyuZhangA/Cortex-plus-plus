@@ -7,6 +7,7 @@
 #include "Layers/nn/LinearLayer.h"
 #include "Layers/nn/ReLuLayer.h"
 #include "Layers/nn/SigmoidLayer.h"
+#include "Layers/nn/SoftmaxLayer.h"
 
 namespace cortex {
     Tensor FLinear(const Tensor& input, const Tensor& weight, const Tensor& bias) {
@@ -93,6 +94,19 @@ namespace cortex {
 
         if (DLEngine::is_grad_mode()) {
             ret.grad_func() = std::make_shared<SigmoidLayer>(input.get_dtype(), input.get_device(), false);
+            ret.grad_func()->add_input(input);
+            ret.grad_func()->add_output(ret);
+        }
+
+        return ret;
+    }
+
+    Tensor FSoftmax(const Tensor& input) {
+        Tensor ret(input.shape(), input.get_dtype(), input.get_device(), true);
+        get_softmax_kernel(input.get_device())(input, ret);
+
+        if (DLEngine::is_grad_mode()) {
+            ret.grad_func() = std::make_shared<SoftmaxLayer>(input.get_dtype(), input.get_device(), false);
             ret.grad_func()->add_input(input);
             ret.grad_func()->add_output(ret);
         }

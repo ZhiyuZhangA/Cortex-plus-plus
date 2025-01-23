@@ -449,7 +449,7 @@ namespace cortex {
 
         std::shared_ptr<Autograd_graph> m_graph = nullptr;
 
-        uint16_t m_printPrecision = 4;
+        uint16_t m_printPrecision = 10;
     };
 
     /**

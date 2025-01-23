@@ -95,3 +95,4 @@ model.backward() -> loss.backward() + loss.graph->clear_grad;
 然后直接去走计算本身，然后修改输出tensor的值，然后继续到下一个layer
 
 
+https://levelup.gitconnected.com/tensor-programming-in-c-custom-reducers-ac9420402cab
