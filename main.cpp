@@ -22,10 +22,10 @@ int main() {
     // input.initialize_with({2.0, 1.0, 0.1, 0.5, 2.0, 1.0});
     input.initialize_with({-0.1875, 0.8026, 0.4352, 2.2096, 0.5503, 0.9852, 0.9854, 0.1866, -0.7313, -0.1727, -0.6427, 1.6189});
 
-    // Tensor res = cortex::exp(input) / cortex::exp(input).sum();
+    Tensor res = cortex::exp(input) / cortex::exp(input).sum();
     Tensor output = FSoftmax(input);
-    output.backward();
-    std::cout << output.to_string() << std::endl;
+    res.backward();
+    std::cout << res.to_string() << std::endl;
     std::cout << input.grad()->to_string() << std::endl;
 
     return 0;

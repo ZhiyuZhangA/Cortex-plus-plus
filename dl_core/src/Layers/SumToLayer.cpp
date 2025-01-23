@@ -13,12 +13,6 @@ namespace cortex {
 
     void SumToLayer::backward() {
         if (this->m_inputs[0].enable_grad()) {
-            // std::cout << " O " << vec_to_string(this->m_outputs[0].shape()) << std::endl;
-            // std::cout << " I " << vec_to_string(this->m_inputs[0].shape()) << std::endl;
-
-            // std::cout << "O" << this->m_outputs[0].to_string() << std::endl;
-            // std::cout << "I" << this->m_inputs[0].to_string() << std::endl;
-
             *(this->m_inputs[0].grad()) += this->m_outputs[0].grad()->broadcast_to(this->m_inputs[0].shape());
         }
     }

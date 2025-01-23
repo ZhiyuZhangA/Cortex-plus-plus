@@ -14,7 +14,10 @@ namespace cortex {
 
     void SoftmaxLayer::backward() {
         if (this->m_inputs[0].enable_grad()) {
-            *(this->m_inputs[0].grad()) += get_dsoftmax_kernel(this->m_deviceType)(this->m_outputs[0]) * *(this->m_outputs[0].grad());
+            const auto dot_product = (this->m_outputs[0] * *(this->m_outputs[0].grad())).sum().broadcast_to(this->m_outputs[0].shape());
+            *(this->m_inputs[0].grad()) += this->m_outputs[0] * (*(this->m_outputs[0].grad()) - dot_product);
+
+            // *(this->m_inputs[0].grad()) += get_dsoftmax_kernel(m_deviceType)(this->m_outputs[0]) * *(this->m_outputs[0].grad());
         }
     }
 
