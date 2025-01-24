@@ -4,7 +4,7 @@
 
 namespace cortex {
     /**
-     *
+     * MSE Loss
      * @param label
      * @param prediction
      * @param mode the reduction mode of mse loss
@@ -14,6 +14,14 @@ namespace cortex {
      * @return
      */
     Tensor FMSELoss(const Tensor& label, const Tensor& prediction, uint8_t mode = 0);
+
+    /**
+     * Cross Entropy Loss
+     * @param label
+     * @param prediction
+     * @return
+     */
+    Tensor FCrossEntropyLoss(const Tensor& label, const Tensor& prediction);
 }
 
 #endif //LOSS_H

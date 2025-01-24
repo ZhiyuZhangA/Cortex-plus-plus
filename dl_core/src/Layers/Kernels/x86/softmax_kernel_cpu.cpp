@@ -17,13 +17,14 @@ namespace cortex {
     void softmax_avx256(const float* input, float* output, const int& n) {
         // Apply exponential function to the input and store the result into the output using simd
         __m256 sum_vec = _mm256_setzero_ps();
-        float max_val = *std::max_element(input, input + n);
-        __m256 max = _mm256_set1_ps(max_val);
+        // float max_val = *std::max_element(input, input + n);
+        // __m256 max = _mm256_set1_ps(max_val);
         const int len = (n / BLOCK_SIZE) * BLOCK_SIZE;
         const int remaining_idx = n - n % BLOCK_SIZE;
         for (int i = 0; i < len; i+=BLOCK_SIZE) {
             const __m256 x = _mm256_load_ps(input + i);
-            const __m256 exp = _mm256_exp_ps(_mm256_sub_ps(x, max));
+            const __m256 exp = _mm256_exp_ps(x);
+            // const __m256 exp = _mm256_exp_ps(_mm256_sub_ps(x, max));
             sum_vec = _mm256_add_ps(sum_vec, exp);
             _mm256_store_ps(output + i, exp);
         }
@@ -31,7 +32,8 @@ namespace cortex {
         float sum_scalar = sum_m256(sum_vec);
         // Dealing with the remaining elements
         for (int i = remaining_idx; i < n; i++) {
-            output[i] = std::exp(input[i] - max_val);
+            output[i] = std::exp(input[i]);
+            //  output[i] = std::exp(input[i] - max_val);
             sum_scalar += output[i];
         }
 
@@ -75,7 +77,7 @@ namespace cortex {
             }
         }
         else if (input.dim() == 1) {
-            softmax_avx256(input.ptr<f32_t>(), output.ptr<f32_t>(), input.size());
+            softmax_plain_impl(input.ptr<f32_t>(), output.ptr<f32_t>(), input.size());
         }
     }
 

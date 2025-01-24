@@ -18,7 +18,7 @@ namespace cortex {
 
     // Loss Functions
     void mse_loss_kernel_cpu(const Tensor& label, const Tensor& prediction, const Tensor& output, uint8_t mode);
-
+    void cross_entropy_loss_kernel_cpu(const Tensor& label, const Tensor& prediction, const Tensor& output);
 
 
 }

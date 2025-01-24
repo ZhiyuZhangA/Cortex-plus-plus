@@ -229,4 +229,11 @@ namespace cortex {
         else
             throw std::runtime_error("Unknown device type!");
     }
+
+    CrossEntropy_loss_kernel get_cross_entropy_loss_kernel(DeviceType deviceType) {
+        if (deviceType == DeviceType::cpu)
+            return cross_entropy_loss_kernel_cpu;
+        else
+            throw std::runtime_error("Unknown device type!");
+    }
 }

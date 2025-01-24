@@ -65,6 +65,8 @@ set(HEADERS
         dl_core/include/avx2_extension/avx2_common_ext.h
         dl_core/include/Layers/nn/SoftmaxLayer.h
         dl_core/include/Modules/Softmax.h
+        dl_core/include/Layers/nn/CrossEntropyLayer.h
+        dl_core/include/Modules/Loss/CrossEntropyLoss.h
 )
 
 set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
@@ -132,6 +134,9 @@ set(SOURCE dl_core/src/DeviceAllocator/DeviceAllocator.cpp main.cpp
         dl_core/src/Layers/Kernels/x86/softmax_kernel_cpu.cpp
         dl_core/src/Layers/nn/SoftmaxLayer.cpp
         dl_core/src/Modules/Softmax.cpp
+        dl_core/src/Layers/nn/CrossEntropyLayer.cpp
+        dl_core/src/Layers/Kernels/x86/cross_entropy_kernel_cpu.cpp
+        dl_core/src/Modules/Loss/CrossEntropyLoss.cpp
 )
 
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/OpenBLAS-0.3.28-x64-64/lib)
